@@ -4,3 +4,6 @@
 - Admin API exposes themeDuplicate/themeFilesUpsert -> use for draft-theme workflow.
 - Owner is a beginner: plan first, draft everything, log to /home/user/PROGRESS.md.
 - 2026-11-12: paw-guard.com is primary domain (SSL on). Shopify Subscriptions app (handle subscriptions-remix) installed. No GitHub repo attached yet.
+- 2026-11-12: Store currency now USD. Target market = USA (owner ships 7 days/week). Brand "Paw-Guard"; support email help@paw-guard.com.
+- Product 1: Parasite Cleanse Drops, 60ml, bundles 1/2/3 bottles at $49.99/$89.99/$119.99 (compare-at 69.99/139.98/209.97), 0.18kg each, always in stock, subscription 20% off (1 btl monthly, 2 every 2 mo, 3 every 3 mo).
+- Gaps: ships only to BG, only market Bulgaria, taxesIncluded=true, store name "My Store", only privacy policy. Connector can't read Shopify Payments.
