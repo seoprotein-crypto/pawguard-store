@@ -1,0 +1,316 @@
+{
+ "ingredients": {
+  "type": "pg-home-ingredients",
+  "blocks": {
+   "i1": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Pumpkin Seed",
+     "tag": "Digestion",
+     "text": "Naturally rich in cucurbitacin and fibre — it helps make the gut a less welcoming place for unwanted guests while keeping digestion smooth."
+    }
+   },
+   "i2": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Marshmallow Root",
+     "tag": "Soothes",
+     "text": "A gentle, soothing botanical that coats and calms the digestive lining throughout the cleanse."
+    }
+   },
+   "i3": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Ginger Root",
+     "tag": "Digestion",
+     "text": "Helps settle the stomach and keeps digestion moving comfortably."
+    }
+   },
+   "i4": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Fennel Seed",
+     "tag": "Digestion",
+     "text": "Helps ease gas and bloating for calmer, more regular digestion."
+    }
+   },
+   "i5": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Black Walnut Hull",
+     "tag": "Cleanse",
+     "text": "A time-honoured botanical that helps make the gut an unfriendly place for unwanted visitors.",
+     "image": "shopify://shop_images/black-walnut-hull.jpg"
+    }
+   },
+   "i6": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Oregon Grape Root",
+     "tag": "Cleanse",
+     "text": "A berberine-rich root with natural cleansing properties that helps keep gut flora in balance.",
+     "image": "shopify://shop_images/oregon-grape-root.jpg"
+    }
+   },
+   "i7": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Olive Leaf",
+     "tag": "Immune",
+     "text": "Rich in oleuropein, offering natural antimicrobial and immune support."
+    }
+   },
+   "i8": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Clove",
+     "tag": "Cleanse",
+     "text": "Contains eugenol, traditionally used to target the egg and larvae stages."
+    }
+   },
+   "i9": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Goldenrod",
+     "tag": "Flush",
+     "text": "A gentle herb that supports the urinary tract and the body’s natural flushing."
+    }
+   },
+   "i10": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Wormwood Root",
+     "tag": "Cleanse",
+     "text": "The classic cleansing herb, carefully limited to 0.85% thujone for gentle daily use.",
+     "image": "shopify://shop_images/wormwood.jpg"
+    }
+   },
+   "i11": {
+    "type": "ingredient",
+    "settings": {
+     "name": "Probiotic Blend",
+     "tag": "Gut flora",
+     "text": "Four friendly strains — L. plantarum, L. acidophilus, B. lactis and L. reuteri — to help rebuild and balance healthy gut flora."
+    }
+   }
+  },
+  "block_order": [
+   "i1",
+   "i2",
+   "i3",
+   "i4",
+   "i5",
+   "i6",
+   "i7",
+   "i8",
+   "i9",
+   "i10",
+   "i11"
+  ],
+  "settings": {
+   "image": "shopify://shop_images/pawguard-ingredients-still-life.jpg",
+   "product": "parasite-cleanse-drops",
+   "label": "Inside our bestseller",
+   "heading": "11 plants. One happy dog bowl.",
+   "text": "Pumpkin seed, black walnut and wormwood handle the cleanse. Marshmallow root, ginger and fennel keep things calm. A probiotic blend helps the gut find its balance again.",
+   "hint": "Tap an ingredient to see what it does.",
+   "btn1_label": "Get the drops",
+   "btn2_label": "Take the Gut Check",
+   "btn2_link": "shopify://pages/gut-check"
+  }
+ },
+ "proof": {
+  "type": "pg-home-proof",
+  "blocks": {
+   "s1": {
+    "type": "stat",
+    "settings": {
+     "value": "35,000+",
+     "label": "dog parents use PawGuard"
+    }
+   },
+   "s2": {
+    "type": "stat",
+    "settings": {
+     "value": "11",
+     "label": "active ingredients in every bottle"
+    }
+   },
+   "s3": {
+    "type": "stat",
+    "settings": {
+     "value": "4",
+     "label": "probiotic strains for the gut"
+    }
+   },
+   "s4": {
+    "type": "stat",
+    "settings": {
+     "value": "90 days",
+     "label": "to love it — or your money back"
+    }
+   }
+  },
+  "block_order": [
+   "s1",
+   "s2",
+   "s3",
+   "s4"
+  ],
+  "settings": {
+   "heading": "Made for the root cause, not just the symptoms.",
+   "text": "Scooting, itching and an unsettled tummy often begin in the gut. So that’s where PawGuard starts — with plants and probiotics instead of harsh chemicals.",
+   "image": "shopify://shop_images/pawguard-drops-added-to-dog-food.jpg"
+  }
+ },
+ "reviews": {
+  "type": "pg-home-reviews",
+  "blocks": {
+   "r1": {
+    "type": "review",
+    "settings": {
+     "rating": 5,
+     "text": "I'm pretty particular about what I give my Golden Retriever, so I always take time to research ingredients and ask our veterinarian questions. I do appreciate the convenience of a liquid product that fits into an established feeding routine.",
+     "name": "Nicole",
+     "date": "08/11/2026"
+    }
+   },
+   "r2": {
+    "type": "review",
+    "settings": {
+     "rating": 5,
+     "text": "I like that the bottle doesn't take up much room in our pet supplies cabinet. The dropper makes it convenient to dispense the liquid, and the packaging is compact enough to bring along when traveling.",
+     "name": "Rachel",
+     "date": "08/07/2026"
+    }
+   },
+   "r3": {
+    "type": "review",
+    "settings": {
+     "rating": 5,
+     "text": "My Beagle has a talent for finding anything unusual in his food, so I wasn't sure how he'd react. Surprisingly, he finished his meal without any fuss. That was a pleasant surprise for me.",
+     "name": "Megan",
+     "date": "07/19/2026"
+    }
+   },
+   "r4": {
+    "type": "review",
+    "settings": {
+     "rating": 5,
+     "text": "Between work, the kids, and taking care of our Labrador, mornings can get pretty hectic. I appreciate products that don't require a lot of extra steps. Adding drops to his food takes very little time.",
+     "name": "Michael",
+     "date": "07/17/2026"
+    }
+   }
+  },
+  "block_order": [
+   "r1",
+   "r2",
+   "r3",
+   "r4"
+  ],
+  "settings": {
+   "heading": "Dog parents are talking",
+   "text": "Real reviews from some of our 35,000+ dog parents.",
+   "link_label": ""
+  }
+ },
+ "quiz": {
+  "type": "pg-home-quiz",
+  "blocks": {
+   "o1": {
+    "type": "option",
+    "settings": {
+     "label": "Scooting, worms or grass eating",
+     "concern": "scoot"
+    }
+   },
+   "o2": {
+    "type": "option",
+    "settings": {
+     "label": "Itching, scratching or licking",
+     "concern": "itch"
+    }
+   },
+   "o3": {
+    "type": "option",
+    "settings": {
+     "label": "Tummy trouble or loose stools",
+     "concern": "tummy"
+    }
+   },
+   "o4": {
+    "type": "option",
+    "settings": {
+     "label": "Low energy or restless nights",
+     "concern": "energy"
+    }
+   }
+  },
+  "block_order": [
+   "o1",
+   "o2",
+   "o3",
+   "o4"
+  ],
+  "settings": {
+   "heading": "Not sure where to start?",
+   "text": "Answer a few quick questions about your dog and get a plan matched to what they really need.",
+   "btn_label": "Take the Gut Check",
+   "link": "shopify://pages/gut-check",
+   "image": "shopify://shop_images/pawguard-hero-mobile.jpg",
+   "card_q": "What would you most like to help your dog with?"
+  }
+ },
+ "faq": {
+  "type": "pg-home-faq",
+  "blocks": {
+   "f1": {
+    "type": "qa",
+    "settings": {
+     "q": "How soon will I notice a difference?",
+     "a": "<p>Most owners see the first changes within the first week or two — less scooting, firmer stools and less paw licking. Gut health builds with daily use, so give it the full 90 days before you decide.</p>"
+    }
+   },
+   "f2": {
+    "type": "qa",
+    "settings": {
+     "q": "How do I give the drops?",
+     "a": "<p>Once a day, added to food, based on your dog’s weight:</p><ul><li>Under 10 lbs — 0.5 ml</li><li>10–35 lbs — 1 ml</li><li>35–75 lbs — 2 ml</li><li>Over 75 lbs — 3 ml</li></ul><p>Each 60 ml bottle lasts about 60 days for a 10–35 lb dog, and less for larger dogs.</p>"
+    }
+   },
+   "f3": {
+    "type": "qa",
+    "settings": {
+     "q": "Can I use it alongside other supplements?",
+     "a": "<p>Yes. The drops are a daily food topper and can be given with other supplements. If your dog takes prescription medication, check with your vet before adding anything new.</p>"
+    }
+   },
+   "f4": {
+    "type": "qa",
+    "settings": {
+     "q": "Is it suitable for puppies, seniors or pregnant dogs?",
+     "a": "<p>It’s suitable for dogs from 12 weeks old, seniors included. It isn’t recommended for pregnant or nursing dogs, or for dogs with a tree-nut allergy, because the formula contains black walnut. If your dog has a health condition or takes medication, ask your vet first.</p>"
+    }
+   },
+   "f5": {
+    "type": "qa",
+    "settings": {
+     "q": "How does the 90-day guarantee work?",
+     "a": "<p>You have 90 days from delivery. If you’re not happy, email <a href=\"mailto:help@paw-guard.com\">help@paw-guard.com</a> with your order number and we’ll refund you in full — even if the bottle is empty.</p>"
+    }
+   }
+  },
+  "block_order": [
+   "f1",
+   "f2",
+   "f3",
+   "f4",
+   "f5"
+  ],
+  "settings": {
+   "heading": "Questions, answered",
+   "text": "<p>Can’t find what you’re looking for? <a href=\"/pages/contact\">Talk to our team</a>.</p>"
+  }
+ }
+}

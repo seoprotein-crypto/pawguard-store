@@ -1,0 +1,40 @@
+{%- comment -%} PawGuard home — "Questions, answered" two-column FAQ. {%- endcomment -%}
+<section class="pgh">
+  <div class="pgh-wrap pgh-faq">
+    <div>
+      <h2 class="pgh-h2">{{ section.settings.heading }}</h2>
+      <div class="pgh-text">{{ section.settings.text }}</div>
+    </div>
+    <div class="pgh-acc">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.q }}</summary>
+          <div class="pgh-acc__a">{{ block.settings.a }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{{ 'pawguard-home.css' | asset_url | stylesheet_tag }}
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+  {%- for block in section.blocks -%}
+  { "@type": "Question", "name": {{ block.settings.q | json }}, "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.a | strip_html | json }} } }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+] }
+</script>
+{% schema %}
+{
+  "name": "PawGuard FAQ (2 columns)",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Questions, answered" },
+    { "type": "richtext", "id": "text", "label": "Text" }
+  ],
+  "blocks": [
+    { "type": "qa", "name": "Question", "settings": [
+      { "type": "text", "id": "q", "label": "Question" },
+      { "type": "richtext", "id": "a", "label": "Answer" } ] }
+  ],
+  "presets": [{ "name": "PawGuard FAQ (2 columns)" }]
+}
+{% endschema %}

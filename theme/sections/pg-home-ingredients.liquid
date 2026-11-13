@@ -1,0 +1,69 @@
+{%- comment -%} PawGuard home — "11 plants" ingredients section with tap-to-read pop-up. {%- endcomment -%}
+{%- assign p = section.settings.product -%}
+<section class="pgh pgh--oat" data-pgh-ingr>
+  <div class="pgh-wrap pgh-ingr">
+    <div class="pgh-ingr__img pgh-rounded">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: class: 'pgh-img', loading: 'lazy', widths: '500, 800, 1000', sizes: '(min-width: 990px) 45vw, 100vw' }}
+      {%- else -%}{{ 'product-1' | placeholder_svg_tag: 'pgh-img' }}{%- endif -%}
+    </div>
+    <div>
+      {%- if section.settings.label != blank -%}<p class="pgh-label">{{ section.settings.label }}</p>{%- endif -%}
+      <h2 class="pgh-h2">{{ section.settings.heading }}</h2>
+      <p class="pgh-text">{{ section.settings.text }}</p>
+      <p class="pgh-ingr__hint">{{ section.settings.hint }}</p>
+      <ul class="pgh-ingr__list" role="list">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <button type="button" aria-haspopup="dialog" data-ing data-name="{{ block.settings.name | escape }}" data-tag="{{ block.settings.tag | escape }}" data-text="{{ block.settings.text | escape }}" data-img="{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 700 }}{% endif %}">
+              {{ block.settings.name }}<span>{{ block.settings.tag }}</span>
+            </button>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <div class="pgh-btns">
+        {%- if p != blank -%}<a class="pgh-btn pgh-btn--green" href="{{ p.url }}">{{ section.settings.btn1_label }} · {{ p.price | money }}</a>{%- endif -%}
+        {%- if section.settings.btn2_label != blank -%}<a class="pgh-btn pgh-btn--line" href="{{ section.settings.btn2_link | default: '/pages/gut-check' }}">{{ section.settings.btn2_label }}</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+  <dialog class="pgh-dlg" aria-label="Ingredient">
+    <button type="button" class="pgh-dlg__x" data-dlg-x aria-label="Close">×</button>
+    <div class="pgh-dlg__img" data-dlg-img hidden><img src="" alt="" width="700" height="440"></div>
+    <div class="pgh-dlg__b">
+      <span class="pgh-dlg__tag" data-dlg-tag></span>
+      <h3 class="pgh-dlg__name" data-dlg-name></h3>
+      <p class="pgh-dlg__text" data-dlg-text></p>
+      <div class="pgh-dlg__foot">
+        {%- if p != blank -%}<span>In every bottle of <a href="{{ p.url }}">{{ p.title }}</a></span>{%- endif -%}
+        <button type="button" class="pgh-dlg__next" data-dlg-next>Next ingredient →</button>
+      </div>
+    </div>
+  </dialog>
+</section>
+{{ 'pawguard-home.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pawguard-home.js' | asset_url }}" defer></script>
+{% schema %}
+{
+  "name": "PawGuard ingredients list",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "label", "label": "Small label", "default": "Inside our bestseller" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "11 plants. One happy dog bowl." },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "hint", "label": "Hint", "default": "Tap an ingredient to see what it does." },
+    { "type": "text", "id": "btn1_label", "label": "Product button label", "default": "Get the drops" },
+    { "type": "text", "id": "btn2_label", "label": "Second button label", "default": "Take the Gut Check" },
+    { "type": "url", "id": "btn2_link", "label": "Second button link" }
+  ],
+  "blocks": [
+    { "type": "ingredient", "name": "Ingredient", "settings": [
+      { "type": "text", "id": "name", "label": "Name" },
+      { "type": "text", "id": "tag", "label": "Tag" },
+      { "type": "textarea", "id": "text", "label": "What it does" },
+      { "type": "image_picker", "id": "image", "label": "Image (optional)" } ] }
+  ],
+  "presets": [{ "name": "PawGuard ingredients list" }]
+}
+{% endschema %}

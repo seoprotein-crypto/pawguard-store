@@ -100,6 +100,15 @@
     state.flow = f.concat(['exposure', 'diet', 'email']);
   }
   flow();
+  // Pre-select concerns passed from the home page teaser, e.g. ?concerns=scoot,itch
+  try {
+    var pre = new URLSearchParams(window.location.search).get('concerns');
+    if (pre) {
+      var okIds = STEPS.concerns.opts.map(function (o) { return o.id; });
+      var preList = pre.split(',').filter(function (x, i, a) { return okIds.indexOf(x) > -1 && a.indexOf(x) === i; }).slice(0, 3);
+      if (preList.length) { state.answers.concerns = preList; flow(); }
+    }
+  } catch (e) { }
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function dog() { return state.name || 'your dog'; }

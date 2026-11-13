@@ -14,3 +14,4 @@
 - Only active market: United States (Bulgaria removed) — non-US visitors see Sold out.
 - Live theme: 192441876808 "PawGuard – working copy" (MAIN since 2026-11-13). Current working copy: 192443515208 "PawGuard – working copy 2". theme_bash sandbox can read other themes at /workspace/themes/<id>/ (handy to copy files between themes).
 - 2026-11-13: live theme = 192443515208 (working copy 2, with quiz). Working copy = 192444793160 (working copy 3, adds home hero). Theme {% stylesheet %} CSS does not render in theme_screenshot — use inline <style> in custom sections; verify with Playwright on ?preview_theme_id= (store hosts allowed in env pawguard-store). Staged uploads via httpMethod PUT + curl --upload-file work.
+- 2026-11-13: owner published working copy 3; working copy 4 = 192449413448. Competitor (PawsyLabs) review/quiz photos were sent by owner as "customer photos" — declined. Theme JS loaded from several sections needs a window.__flag guard.

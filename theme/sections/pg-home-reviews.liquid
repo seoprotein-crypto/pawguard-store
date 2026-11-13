@@ -1,0 +1,49 @@
+{%- comment -%} PawGuard home — "Dog parents are talking" review cards. Real reviews only; photos only if sent by that customer. {%- endcomment -%}
+<section class="pgh pgh--oat">
+  <div class="pgh-wrap">
+    <div class="pgh-rv-head">
+      <div>
+        <h2 class="pgh-h2">{{ section.settings.heading }}</h2>
+        <p class="pgh-text">{{ section.settings.text }}</p>
+      </div>
+      {%- if section.settings.link_label != blank and section.settings.link != blank -%}<a class="pgh-btn pgh-btn--line" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>{%- endif -%}
+    </div>
+    <div class="pgh-rv-grid">
+      {%- for block in section.blocks -%}
+        <article class="pgh-rv" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <div class="pgh-rv__img">{{ block.settings.image | image_url: width: 600 | image_tag: class: 'pgh-img', loading: 'lazy', alt: block.settings.image.alt }}</div>
+          {%- endif -%}
+          <div class="pgh-rv__b">
+            <span class="pgh-rv__stars" aria-label="{{ block.settings.rating }} out of 5 stars">{%- for i in (1..5) -%}{%- if i <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}{%- endfor -%}</span>
+            {%- if block.settings.title != blank -%}<p class="pgh-rv__title">{{ block.settings.title }}</p>{%- endif -%}
+            <p class="pgh-rv__text">{{ block.settings.text }}</p>
+            <div class="pgh-rv__foot"><b>{{ block.settings.name }}<span class="pgh-rv__v">✓ Verified buyer</span></b><span>{{ block.settings.date }}</span></div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{{ 'pawguard-home.css' | asset_url | stylesheet_tag }}
+{% schema %}
+{
+  "name": "PawGuard review cards",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Dog parents are talking" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Real reviews from some of our 35,000+ dog parents." },
+    { "type": "text", "id": "link_label", "label": "Link label (e.g. reviews site)" },
+    { "type": "url", "id": "link", "label": "Link" }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Review", "limit": 8, "settings": [
+      { "type": "image_picker", "id": "image", "label": "Photo (only one this customer sent you)" },
+      { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "text", "id": "title", "label": "Title (customer's own words, optional)" },
+      { "type": "textarea", "id": "text", "label": "Review text" },
+      { "type": "text", "id": "name", "label": "First name" },
+      { "type": "text", "id": "date", "label": "Date" } ] }
+  ],
+  "presets": [{ "name": "PawGuard review cards" }]
+}
+{% endschema %}
