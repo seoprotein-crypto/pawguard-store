@@ -1,0 +1,84 @@
+{%- comment -%} PawGuard — home page first fold. Full-bleed photo (separate desktop + mobile), rating line, headline, two buttons. {%- endcomment -%}
+{%- liquid
+  assign d = section.settings.image_desktop
+  assign m = section.settings.image_mobile | default: d
+  assign rating = section.settings.rating | default: 4.5
+  assign pct = rating | divided_by: 5.0 | times: 100
+-%}
+<section class="pg-hh" style="--pg-hh-text: {{ section.settings.text_color }};">
+  <picture class="pg-hh__media">
+    {%- if m != blank -%}<source media="(max-width: 749px)" srcset="{{ m | image_url: width: 750 }} 750w, {{ m | image_url: width: 1086 }} 1086w" sizes="100vw">{%- endif -%}
+    {%- if d != blank -%}
+      <img src="{{ d | image_url: width: 1832 }}" srcset="{{ d | image_url: width: 1000 }} 1000w, {{ d | image_url: width: 1440 }} 1440w, {{ d | image_url: width: 1832 }} 1832w" sizes="100vw" alt="{{ d.alt | escape }}" width="{{ d.width }}" height="{{ d.height }}" fetchpriority="high">
+    {%- else -%}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'pg-hh__ph' }}
+    {%- endif -%}
+  </picture>
+  <div class="pg-hh__wrap">
+    <div class="pg-hh__content">
+      {%- if section.settings.show_rating -%}
+        <p class="pg-hh__rating">
+          <span class="pg-hh__stars" style="--pct: {{ pct }}%" role="img" aria-label="Rated {{ rating }} out of 5"><span>★★★★★</span></span>
+          <span>{{ section.settings.rating_text }}</span>
+        </p>
+      {%- endif -%}
+      <h1 class="pg-hh__title">{{ section.settings.heading }}</h1>
+      {%- if section.settings.text != blank -%}<p class="pg-hh__text">{{ section.settings.text }}</p>{%- endif -%}
+      <div class="pg-hh__btns">
+        {%- if section.settings.btn1_label != blank -%}<a class="pg-hh__btn pg-hh__btn--solid" href="{{ section.settings.btn1_link | default: routes.all_products_collection_url }}">{{ section.settings.btn1_label }}</a>{%- endif -%}
+        {%- if section.settings.btn2_label != blank -%}<a class="pg-hh__btn pg-hh__btn--ghost" href="{{ section.settings.btn2_link | default: '/pages/gut-check' }}">{{ section.settings.btn2_label }}</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.pg-hh{position:relative;overflow:hidden;color:var(--pg-hh-text,#173f2d);min-height:min(78vh,720px);display:flex;align-items:center}
+.pg-hh__media,.pg-hh__media img,.pg-hh__ph{position:absolute;inset:0;width:100%;height:100%}
+.pg-hh__media img{object-fit:cover;object-position:center right}
+.pg-hh__wrap{position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:64px 20px}
+.pg-hh__content{max-width:560px}
+.pg-hh__rating{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-weight:600;font-size:15px}
+.pg-hh__stars{position:relative;display:inline-block;color:rgba(23,63,45,.22);letter-spacing:2px;font-size:17px;line-height:1}
+.pg-hh__stars span{position:absolute;inset:0;width:var(--pct);overflow:hidden;color:#e0a526;white-space:nowrap}
+.pg-hh__stars::before{content:"★★★★★"}
+.pg-hh__title{font-size:clamp(40px,6vw,76px);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin:0 0 18px;color:inherit}
+.pg-hh__text{font-size:clamp(17px,1.6vw,20px);line-height:1.5;margin:0 0 28px;max-width:480px;opacity:.9}
+.pg-hh__btns{display:flex;gap:12px;flex-wrap:wrap}
+.pg-hh__btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:15px 28px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid #1f5c3f;transition:.15s}
+.pg-hh__btn--solid{background:#1f5c3f;color:#fff}
+.pg-hh__btn--solid:hover{background:#173f2d;border-color:#173f2d}
+.pg-hh__btn--ghost{background:rgba(255,255,255,.7);color:#173f2d;backdrop-filter:blur(4px)}
+.pg-hh__btn--ghost:hover{background:#fff}
+@media (max-width:749px){
+  .pg-hh{min-height:0;display:flex;flex-direction:column-reverse;background:#eedac8}
+  .pg-hh__media{position:relative;display:block;width:100%;height:auto}
+  .pg-hh__media img{position:relative;display:block;width:100%;height:auto;aspect-ratio:1086/1000;object-fit:cover;object-position:center bottom}
+  .pg-hh__wrap{padding:32px 20px 8px}
+  .pg-hh__content{text-align:center;margin:0 auto}
+  .pg-hh__rating{justify-content:center;font-size:14px}
+  .pg-hh__title{font-size:clamp(34px,10vw,46px)}
+  .pg-hh__text{font-size:16px;margin:0 auto 22px}
+  .pg-hh__btns{justify-content:center}
+  .pg-hh__btn{padding:12px 18px;font-size:14px}
+}
+</style>
+{% schema %}
+{
+  "name": "PawGuard home hero",
+  "settings": [
+    { "type": "image_picker", "id": "image_desktop", "label": "Desktop image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating line", "default": true },
+    { "type": "text", "id": "rating", "label": "Star rating (real average)", "default": "4.5" },
+    { "type": "text", "id": "rating_text", "label": "Rating text", "default": "Loved by 35,000+ dog parents" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Less tummy trouble. More tail wags." },
+    { "type": "textarea", "id": "text", "label": "Text" },
+    { "type": "text", "id": "btn1_label", "label": "Button 1 label", "default": "Shop the Drops" },
+    { "type": "url", "id": "btn1_link", "label": "Button 1 link" },
+    { "type": "text", "id": "btn2_label", "label": "Button 2 label", "default": "Take the Gut Check" },
+    { "type": "url", "id": "btn2_link", "label": "Button 2 link" },
+    { "type": "color", "id": "text_color", "label": "Text colour", "default": "#173f2d" }
+  ],
+  "presets": [{ "name": "PawGuard home hero" }]
+}
+{% endschema %}

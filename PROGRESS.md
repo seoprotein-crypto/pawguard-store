@@ -77,3 +77,8 @@ No mutations to the store have been made.
 - 2026-11-13 | FINDING | storefront reports product SOLD OUT for US buyers: /cart/add.js 422 "already sold out" although admin availableForSale=true, untracked, published. US market has catalogsCount 0, webPresences none, delivery.shipping null (Bulgaria market was removed). Store cannot take orders until owner fixes Settings > Markets.
 - 2026-11-13 | Shopify theme_commit | working copy 2 | quiz tick z-index fix
 - 2026-11-13 | Shopify theme_publish working copy 2 (192443515208) | REFUSED ("Only agent-created themes can be published here") — owner asked to publish; owner to click Publish in admin
+- 2026-11-13 | Owner | published "PawGuard – working copy 2" (192443515208) -> MAIN (quiz live)
+- 2026-11-13 | Local | extracted PNG photos from owner's PawGuardDesktop.svg / PawGuardMobile.svg -> assets/source/pawguard-hero-desktop.jpg (1832x859), pawguard-hero-mobile.jpg (1086x1448)
+- 2026-11-13 | Shopify MCP | stagedUploadsCreate (PUT) + curl upload + fileCreate | MediaImage 64753817977160 (desktop), 64753818009928 (mobile), alt text set | OK
+- 2026-11-13 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 3" gid://shopify/OnlineStoreTheme/192444793160 | OK
+- 2026-11-13 | Local + theme_bash + theme_commit fc543c4c, 47631489 | working copy 3 | new sections/pg-home-hero.liquid (inline <style>, desktop/mobile photos, 4.5-star line "Loved by 35,000+ dog parents", headline, 2 buttons); templates/index.json now = [pg_hero] only (removed Shopify sample hero + placeholder T-shirt product list) | MD5 identical to repo; real-browser screenshots desktop + mobile OK; buttons -> /products/parasite-cleanse-drops and /pages/gut-check
