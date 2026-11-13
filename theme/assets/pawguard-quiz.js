@@ -22,18 +22,18 @@
       { id: 'senior', label: '8 years or more', pts: 1, why: 'Older dogs often need a little more digestive support' } ],
       tip: 'Age shapes what the gut needs — puppies and seniors usually need the most support.' },
     size: { type: 'single', grid: true, q: 'What does {dog} weigh?', opts: [
-      { id: 'toy', label: 'Under 10 lbs', sub: 'Toy' },
-      { id: 'small', label: '10–35 lbs', sub: 'Small to medium' },
-      { id: 'medium', label: '35–75 lbs', sub: 'Medium to large' },
-      { id: 'large', label: 'Over 75 lbs', sub: 'Large' } ],
+      { id: 'toy', label: 'Under 10 lbs', sub: 'Toy', crop: [30, 300, 210] },
+      { id: 'small', label: '10–35 lbs', sub: 'Small to medium', crop: [200, 200, 250] },
+      { id: 'medium', label: '35–75 lbs', sub: 'Medium to large', crop: [400, 60, 340] },
+      { id: 'large', label: 'Over 75 lbs', sub: 'Large', crop: [740, 0, 390] } ],
       tip: 'Weight sets the daily serving, so the plan will show exactly how much {dog} needs.' },
     concerns: { type: 'multi', max: 3, q: 'What would you most like to improve for {dog}?', sub: 'Choose up to 3.', opts: [
-      { id: 'itch', label: 'Scratching, itching or paw licking', pts: 2, why: 'You chose itching and licking as a top concern' },
-      { id: 'scoot', label: 'Scooting, worms or grass eating', pts: 3, why: 'Scooting and grass eating are classic signs of an unsettled gut' },
-      { id: 'tummy', label: 'Loose stools or tummy trouble', pts: 3, why: 'You chose tummy trouble as a top concern' },
-      { id: 'coat', label: 'Dull coat or extra shedding', pts: 1, why: 'A dull coat often reflects what’s going on in the gut' },
-      { id: 'energy', label: 'Low energy or restless nights', pts: 1, why: 'Low energy and broken sleep can start with digestive discomfort' },
-      { id: 'wellness', label: 'Nothing in particular — just staying healthy', why: 'You want a simple daily routine to keep {dog}’s gut on track' } ],
+      { id: 'itch', ill: 'itch', label: 'Scratching, itching or paw licking', pts: 2, why: 'You chose itching and licking as a top concern' },
+      { id: 'scoot', ill: 'grass', label: 'Scooting, worms or grass eating', pts: 3, why: 'Scooting and grass eating are classic signs of an unsettled gut' },
+      { id: 'tummy', ill: 'tummy', label: 'Loose stools or tummy trouble', pts: 3, why: 'You chose tummy trouble as a top concern' },
+      { id: 'coat', ill: 'coat', label: 'Dull coat or extra shedding', pts: 1, why: 'A dull coat often reflects what’s going on in the gut' },
+      { id: 'energy', ill: 'energy', label: 'Low energy or restless nights', pts: 1, why: 'Low energy and broken sleep can start with digestive discomfort' },
+      { id: 'wellness', ill: 'heart', label: 'Nothing in particular — just staying healthy', why: 'You want a simple daily routine to keep {dog}’s gut on track' } ],
       tip: 'Pick what bothers {dog} most. We’ll ask one short follow-up for each.' },
     f_itch: { type: 'multi', q: 'Where does {dog} scratch or lick most?', sub: 'Select all that apply.', opts: [
       { id: 'paws', label: 'Paws', pts: 1, why: '{Dog} licks or chews their paws' },
@@ -68,6 +68,23 @@
       tip: 'Diet affects gut balance — raw diets in particular call for a little extra care.' },
     email: { type: 'email' }
   };
+  var ICONS = {
+    itch: '<path d="M12 21c-3 0-5-2-5-4.5S9.5 12 12 12s5 2 5 4.5S15 21 12 21z"/><circle cx="6" cy="9" r="2"/><circle cx="10" cy="5.5" r="2"/><circle cx="14" cy="5.5" r="2"/><circle cx="18" cy="9" r="2"/><path d="M2 14l2 1M2 18l2-.5M22 14l-2 1M22 18l-2-.5"/>',
+    grass: '<path d="M4 21c0-6 2-10 5-13M9 21c0-5 1-9 3-12M14 21c0-4 2-8 6-11M19 21c0-3 .5-5 2-7M2 21h20"/>',
+    tummy: '<path d="M9 3v4c0 2-3 3-3 7a6 6 0 0 0 12 0c0-3-2-4-4-4h-1"/><path d="M10 14c1 1.5 3 1.5 4 0"/>',
+    coat: '<path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M18 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>',
+    energy: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+    heart: '<path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/>'
+  };
+  function icon(k) { return ICONS[k] ? '<span class="pgq-ill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + ICONS[k] + '</svg></span>' : ''; }
+  // Crop a square [x, y, size] out of the dosing-chart photo (1178 x 666), shown as a background image.
+  function art(c) {
+    if (!c || !CFG.sizeImage) return '';
+    var W = 1178, H = 666, x = c[0], y = c[1], w = c[2];
+    var size = (W / w * 100).toFixed(1) + '% ' + (H / w * 100).toFixed(1) + '%';
+    var pos = (x / (W - w) * 100).toFixed(1) + '% ' + (H - w > 0 ? (y / (H - w) * 100).toFixed(1) : 0) + '%';
+    return '<span class="pgq-art" aria-hidden="true" style="background-image:url(' + esc(CFG.sizeImage) + ');background-size:' + size + ';background-position:' + pos + '"></span>';
+  }
   var FOLLOW = { itch: 'f_itch', scoot: 'f_scoot', tummy: 'f_tummy' };
   var DOSE = { toy: '0.5 ml', small: '1 ml', medium: '2 ml', large: '3 ml' };
   var WEIGHT = { toy: 'Under 10 lbs', small: '10–35 lbs', medium: '35–75 lbs', large: 'Over 75 lbs' };
@@ -123,10 +140,10 @@
     var multi = s.type === 'multi', sel = state.answers[key] || (multi ? [] : null);
     var opts = s.opts.map(function (o) {
       var on = multi ? sel.indexOf(o.id) > -1 : sel === o.id;
-      return '<button type="button" class="pgq-opt" data-id="' + o.id + '" aria-pressed="' + on + '"><span class="pgq-opt-t">' + esc(fill(o.label)) + (o.sub ? '<small>' + esc(o.sub) + '</small>' : '') + '</span><span class="pgq-tick" aria-hidden="true"></span></button>';
+      return '<button type="button" class="pgq-opt" data-id="' + o.id + '" aria-pressed="' + on + '">' + art(o.crop) + icon(o.ill) + '<span class="pgq-opt-t">' + esc(fill(o.label)) + (o.sub ? '<small>' + esc(o.sub) + '</small>' : '') + '</span><span class="pgq-tick" aria-hidden="true"></span></button>';
     }).join('');
     stage.innerHTML = '<div class="pgq-step"><h1 class="pgq-q">' + esc(fill(s.q)) + '</h1>' + (s.sub ? '<p class="pgq-sub">' + esc(s.sub) + '</p>' : '') +
-      '<div class="pgq-opts' + (s.grid ? ' pgq-opts--2' : '') + '" role="group" aria-label="' + esc(fill(s.q)) + '">' + opts + '</div>' + (s.max ? '<p class="pgq-hint" data-hint></p>' : '') + tip(s.tip) + '</div>';
+      '<div class="pgq-opts' + (s.grid ? ' pgq-opts--2' : '') + (s.opts.some(function (o) { return o.crop; }) ? ' pgq-opts--art' : '') + '" role="group" aria-label="' + esc(fill(s.q)) + '">' + opts + '</div>' + (s.max ? '<p class="pgq-hint" data-hint></p>' : '') + tip(s.tip) + '</div>';
     var btn = null;
     if (multi) {
       setFoot('<button type="button" class="pgq-cta" data-next>Continue</button>');
@@ -249,7 +266,7 @@
       '<section class="pgq-plan"><div class="pgq-plan-media">' + (v.image ? '<img src="' + esc(v.image) + '" alt="' + esc(CFG.product.title + ' – ' + v.title) + '" width="400" height="400">' : '') + '</div>' +
       '<div class="pgq-plan-b"><p class="pgq-eyebrow">' + esc(fill('Recommended for {dog}')) + '</p><h2 class="pgq-h2">' + esc(CFG.product.title) + ' · ' + esc(v.title) + '</h2>' +
       '<p class="pgq-dose"><b>' + esc(fill('{Dog}’s daily serving:')) + '</b> ' + esc(DOSE[state.answers.size] ? DOSE[state.answers.size] + ' once a day, mixed into food' : 'by weight, once a day') + '</p>' +
-      buy + (v.available ? '<button type="button" class="pgq-cta" data-checkout>' + esc(fill('Get {dog}’s plan')) + '</button><p class="pgq-note">Secure checkout' + (CFG.freeShipping ? ' · ' + esc(CFG.freeShipping) : '') + '</p>' : '<p class="pgq-note">Currently unavailable in your region.</p>') +
+      buy + (v.available ? '<button type="button" class="pgq-cta" data-checkout>' + esc(fill('Get {dog}’s plan')) + '</button><p class="pgq-note">Secure checkout' + (CFG.freeShipping ? ' · ' + esc(CFG.freeShipping) : '') + '</p>' : '<p class="pgq-unavail">Checkout is currently available for US delivery addresses only. If you’re in the US and see this, please refresh the page.</p>') +
       '<a class="pgq-more" href="' + esc(CFG.product.url) + '">See full product details</a></div></section>' +
       (r.vet ? '<div class="pgq-vet">⚠️ You mentioned worms or rice-like bits in the stool. Please also book a check-up with your vet — they can confirm what’s going on and advise on treatment.</div>' : '') +
       '<section class="pgq-why"><h2 class="pgq-h3">' + esc(fill('Why this fits {dog}')) + '</h2><ul>' + why + '</ul></section>' +

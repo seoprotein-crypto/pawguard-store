@@ -20,6 +20,7 @@
   "team": {{ section.settings.team_name | json }},
   "email": {{ section.settings.support_email | json }},
   "freeShipping": {{ section.settings.free_shipping | json }},
+  "sizeImage": {% if section.settings.size_image != blank %}{{ section.settings.size_image | image_url: width: 1178 | json }}{% else %}null{% endif %},
   "loadingImage": {% if section.settings.loading_image != blank %}{{ section.settings.loading_image | image_url: width: 900 | json }}{% else %}null{% endif %},
   "product": {
     "title": {{ p.title | json }},
@@ -60,7 +61,8 @@
     { "type": "text", "id": "team_name", "label": "Tip signature", "default": "The PawGuard team" },
     { "type": "text", "id": "support_email", "label": "Support email", "default": "help@paw-guard.com" },
     { "type": "text", "id": "free_shipping", "label": "Shipping line", "default": "Free US shipping over $54 · ships the next day" },
-    { "type": "image_picker", "id": "loading_image", "label": "Image on the 'building your plan' screen" }
+    { "type": "image_picker", "id": "loading_image", "label": "Image on the 'building your plan' screen" },
+    { "type": "image_picker", "id": "size_image", "label": "Dog sizes picture", "info": "Used for the little dog pictures on the weight question" }
   ],
   "blocks": [
     { "type": "review", "name": "Customer review", "limit": 3, "settings": [
