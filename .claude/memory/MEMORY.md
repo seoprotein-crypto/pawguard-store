@@ -12,3 +12,4 @@
 - Vet: Dr. Petya Georgieva, Veterinarian, 12 yrs practice, "Compensated for her time", heading "Reviewed by a veterinarian". No quote.
 - 2026-11-13: Owner published "Horizon – PawGuard DRAFT" (192425886024) as MAIN. Old Horizon 192234422600 unpublished. Owner rule change: work live, no approval needed (still confirm irreversible actions). theme_publish refuses non-agent-created themes; MAIN theme writes blocked -> edit a copy, then publish.
 - Only active market: United States (Bulgaria removed) — non-US visitors see Sold out.
+- Working copy theme for edits: 192441876808 "PawGuard – working copy".

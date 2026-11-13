@@ -56,3 +56,4 @@ No mutations to the store have been made.
 - 2026-11-13 | Note | storefront shows "Sold out": only active market is United States (Bulgaria removed) — non-US visitors cannot buy; admin availableForSale=true. Theme NOT published yet — awaiting owner's explicit yes. Password removal = owner action in admin.
 - 2026-11-13 | Shopify theme_publish | DRAFT theme 192425886024 | REFUSED by Shopify ("Only agent-created themes can be published here") — owner to publish in admin: Online Store > Themes > Publish
 - 2026-11-13 | Local file | CLAUDE.md rules updated per owner (live changes, no approval; confirm irreversible only); memory updated; live theme now 192425886024 (owner published)
+- 2026-11-13 | Shopify MCP | themeDuplicate live 192425886024 -> "PawGuard – working copy" gid://shopify/OnlineStoreTheme/192441876808 (UNPUBLISHED) | OK — for header redesign
