@@ -1,0 +1,75 @@
+/* PawGuard Gut Check quiz */
+.pg-quiz{max-width:720px;margin:0 auto;padding:24px 20px 120px;--q-green:#1f5c3f;--q-dark:#173f2d;--q-soft:#e7efe9;--q-cream:#f7eddf;--q-line:#dfe6e2;--q-muted:#5d6b64}
+.pgq-top{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.pgq-back{border:0;background:none;color:var(--q-dark);font-weight:700;cursor:pointer;padding:6px 0;font-size:15px}
+.pgq-bar{flex:1;height:6px;background:#e6ebe8;border-radius:999px;overflow:hidden}
+.pgq-bar span{display:block;height:100%;width:0;background:var(--q-green);border-radius:999px;transition:width .3s}
+.pgq-count{font-size:13px;color:var(--q-muted);min-width:42px;text-align:right}
+.pgq-eyebrow{color:var(--q-green);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 10px}
+.pgq-q,.pgq-title{font-size:clamp(26px,4vw,36px);line-height:1.15;color:var(--q-dark);font-weight:800;margin:0 0 10px}
+.pgq-sub,.pgq-lede{color:var(--q-muted);margin:0 0 22px;font-size:16px}
+.pgq-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.pgq-input{width:100%;font-size:18px;padding:16px 18px;border:2px solid var(--q-line);border-radius:14px;outline:none;background:#fff}
+.pgq-input:focus{border-color:var(--q-green)}
+.pgq-opts{display:grid;gap:12px}
+.pgq-opts--2{grid-template-columns:1fr 1fr}
+.pgq-opt{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;border:2px solid var(--q-line);border-radius:14px;padding:16px 18px;background:#fff;cursor:pointer;font-size:16px;font-weight:600;color:#1d2b24;transition:.15s}
+.pgq-opt:hover{border-color:#a9c3b4}
+.pgq-opt[aria-pressed=true]{border-color:var(--q-green);background:var(--q-soft)}
+.pgq-opt small{display:block;font-weight:400;color:var(--q-muted);font-size:13px;margin-top:2px}
+.pgq-tick{flex:0 0 22px;height:22px;border-radius:50%;border:2px solid var(--q-line)}
+.pgq-opt[aria-pressed=true] .pgq-tick{background:var(--q-green);border-color:var(--q-green);box-shadow:inset 0 0 0 4px #fff}
+.pgq-hint{color:var(--q-green);font-size:14px;min-height:20px;margin:10px 0 0}
+.pgq-tip{display:flex;gap:12px;align-items:flex-start;background:var(--q-cream);border-radius:14px;padding:14px 16px;margin-top:22px;font-size:14px}
+.pgq-tip span{font-size:20px}
+.pgq-tip p{margin:2px 0 0;color:#3c4a43}
+.pgq-foot{padding:24px 0 16px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.pgq-cta{width:100%;max-width:520px;border:0;border-radius:999px;background:var(--q-green);color:#fff;font-weight:700;font-size:17px;padding:17px 24px;cursor:pointer}
+.pgq-cta:hover{background:var(--q-dark)}
+.pgq-cta[disabled]{opacity:.45;cursor:not-allowed}
+.pgq-link{border:0;background:none;color:var(--q-dark);text-decoration:underline;cursor:pointer;font-size:15px;padding:8px}
+.pgq-fine,.pgq-note,.pgq-disclaimer{font-size:12px;color:var(--q-muted)}
+.pgq-load{text-align:center;padding-top:20px}
+.pgq-load-img{width:220px;height:220px;object-fit:cover;border-radius:50%;margin:0 auto 20px;display:block}
+.pgq-dots{display:flex;gap:8px;justify-content:center;margin:14px 0}
+.pgq-dots i{width:10px;height:10px;border-radius:50%;background:var(--q-green);animation:pgqdot 1s infinite alternate}
+.pgq-dots i:nth-child(2){animation-delay:.2s}.pgq-dots i:nth-child(3){animation-delay:.4s}
+@keyframes pgqdot{from{opacity:.25;transform:translateY(0)}to{opacity:1;transform:translateY(-6px)}}
+@media (prefers-reduced-motion: reduce){.pgq-dots i{animation:none}}
+.pgq-status{color:var(--q-muted)}
+.pgq-res section{margin-top:24px}
+.pgq-profile{background:var(--q-cream);border-radius:18px;padding:20px}
+.pgq-h2{font-size:24px;color:var(--q-dark);margin:0 0 10px;font-weight:800}
+.pgq-h3{font-size:19px;color:var(--q-dark);margin:0 0 10px;font-weight:800}
+.pgq-facts,.pgq-picks{list-style:none;padding:0;margin:0 0 10px;display:flex;flex-wrap:wrap;gap:8px}
+.pgq-facts li{background:#fff;border-radius:999px;padding:5px 12px;font-size:14px;font-weight:600}
+.pgq-picks li{background:var(--q-green);color:#fff;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700}
+.pgq-level{margin:6px 0 0}
+.pgq-plan{display:grid;grid-template-columns:220px 1fr;gap:24px;border:2px solid var(--q-green);border-radius:18px;padding:22px;background:#fff}
+.pgq-plan-media img{width:100%;height:auto;border-radius:12px;background:var(--q-cream)}
+.pgq-dose{background:var(--q-soft);border-radius:10px;padding:10px 12px;font-size:15px}
+.pgq-buy{display:grid;gap:10px;margin:14px 0}
+.pgq-po{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;border:2px solid var(--q-line);border-radius:14px;padding:12px 14px;cursor:pointer}
+.pgq-po:has(input:checked){border-color:var(--q-green);background:var(--q-soft)}
+.pgq-po input{accent-color:var(--q-green)}
+.pgq-po small{display:block;color:var(--q-muted);font-size:13px}
+.pgq-po-p s{color:var(--q-muted);font-size:13px;margin-right:4px}
+.pgq-more{display:inline-block;margin-top:10px;color:var(--q-dark);font-weight:600}
+.pgq-vet{margin-top:20px;background:#fff6e5;border:1px solid #f1d39a;border-radius:14px;padding:14px 16px;font-size:15px}
+.pgq-why ul{padding-left:20px;margin:0}
+.pgq-why li{margin:6px 0}
+.pgq-promise{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pgq-promise div{background:var(--q-cream);border-radius:14px;padding:14px}
+.pgq-promise p{margin:4px 0 0;font-size:14px;color:#3c4a43}
+.pgq-reviews-g{display:grid;gap:12px}
+.pgq-review{margin:0;border:1px solid var(--q-line);border-radius:14px;padding:16px}
+.pgq-review blockquote{margin:6px 0;font-size:15px}
+.pgq-review figcaption{font-size:13px;color:var(--q-muted)}
+.pgq-stars{color:var(--q-green);letter-spacing:2px}
+.pgq-res .pgq-link{display:block;margin:20px auto 0}
+@media (max-width: 640px){
+  .pgq-opts--2{grid-template-columns:1fr}
+  .pgq-plan{grid-template-columns:1fr}
+  .pgq-plan-media{max-width:220px;margin:0 auto}
+  .pgq-promise{grid-template-columns:1fr}
+}

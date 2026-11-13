@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "quiz": {
+      "type": "pg-gut-check",
+      "blocks": {
+        "rv1": { "type": "review", "settings": { "name": "Jennifer", "date": "06/17/2026", "text": "I was expecting a struggle because my dog is incredibly picky, but mixing the drops into his food was surprisingly easy. He ate his dinner like usual and didn't seem to notice anything different." } },
+        "rv2": { "type": "review", "settings": { "name": "Michael", "date": "07/17/2026", "text": "Between work, the kids, and taking care of our Labrador, mornings can get pretty hectic. I appreciate products that don't require a lot of extra steps. Adding drops to his food takes very little time." } }
+      },
+      "block_order": ["rv1", "rv2"],
+      "settings": {
+        "product": "parasite-cleanse-drops",
+        "team_name": "The PawGuard team",
+        "support_email": "help@paw-guard.com",
+        "free_shipping": "Free US shipping over $54 · ships the next day",
+        "loading_image": "shopify://shop_images/pawguard-drops-added-to-dog-food.jpg"
+      }
+    }
+  },
+  "order": ["quiz"]
+}

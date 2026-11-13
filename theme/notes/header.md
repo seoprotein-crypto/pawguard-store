@@ -12,3 +12,5 @@
   - schema: added header "Call-to-action button" + settings cta_label (text), cta_link (url) at top of settings
   - `capture actions`: renders <a class="pg-header-cta"> before header-actions when cta_label set
 - Store data (live): main-menu = All Products (/collections/all) · Track Your Order (customer account orders) · Contact Us (/pages/contact)
+
+- 2026-11-13: CTA changed to "Take the Gut Check" -> shopify://pages/gut-check

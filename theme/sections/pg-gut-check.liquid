@@ -1,0 +1,73 @@
+{%- comment -%}
+  PawGuard Gut Check quiz. Recommends a Parasite Cleanse Drops bundle (1/2/3 bottles)
+  from the owner's answers. Logic lives in assets/pawguard-quiz.js.
+{%- endcomment -%}
+{%- assign p = section.settings.product -%}
+<section class="pg pg-quiz" id="pg-quiz" data-mode="q">
+  <div class="pgq-top">
+    <button type="button" class="pgq-back" data-q-back hidden aria-label="Back">← Back</button>
+    <div class="pgq-bar" aria-hidden="true"><span data-q-bar></span></div>
+    <span class="pgq-count" data-q-count></span>
+  </div>
+  <div class="pgq-stage" data-q-stage aria-live="polite">
+    <noscript><p>Please enable JavaScript to take the Gut Check.</p></noscript>
+  </div>
+  <div class="pgq-foot" data-q-foot></div>
+</section>
+{%- if p != blank -%}
+<script type="application/json" id="pg-quiz-config">
+{
+  "team": {{ section.settings.team_name | json }},
+  "email": {{ section.settings.support_email | json }},
+  "freeShipping": {{ section.settings.free_shipping | json }},
+  "loadingImage": {% if section.settings.loading_image != blank %}{{ section.settings.loading_image | image_url: width: 900 | json }}{% else %}null{% endif %},
+  "product": {
+    "title": {{ p.title | json }},
+    "url": {{ p.url | json }},
+    "variants": [
+      {%- for v in p.variants -%}
+        {%- assign alloc = v.selling_plan_allocations | first -%}
+        {
+          "id": {{ v.id }},
+          "title": {{ v.title | json }},
+          "price": {{ v.price }},
+          "compare": {{ v.compare_at_price | default: 0 }},
+          "available": {{ v.available }},
+          "image": {% if v.featured_media %}{{ v.featured_media | image_url: width: 500 | json }}{% else %}null{% endif %},
+          "plan": {% if alloc %}{{ alloc.selling_plan.id }}{% else %}null{% endif %},
+          "planPrice": {% if alloc %}{{ alloc.price }}{% else %}null{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  },
+  "reviews": [
+    {%- for block in section.blocks -%}
+      { "name": {{ block.settings.name | json }}, "date": {{ block.settings.date | json }}, "text": {{ block.settings.text | json }} }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ],
+  "money": {{ shop.money_format | json }}
+}
+</script>
+{%- endif -%}
+{{ 'pawguard.css' | asset_url | stylesheet_tag }}
+{{ 'pawguard-quiz.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pawguard-quiz.js' | asset_url }}" defer></script>
+{% schema %}
+{
+  "name": "PawGuard Gut Check",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product to recommend" },
+    { "type": "text", "id": "team_name", "label": "Tip signature", "default": "The PawGuard team" },
+    { "type": "text", "id": "support_email", "label": "Support email", "default": "help@paw-guard.com" },
+    { "type": "text", "id": "free_shipping", "label": "Shipping line", "default": "Free US shipping over $54 · ships the next day" },
+    { "type": "image_picker", "id": "loading_image", "label": "Image on the 'building your plan' screen" }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Review (real customers only)", "limit": 3, "settings": [
+      { "type": "text", "id": "name", "label": "First name" },
+      { "type": "text", "id": "date", "label": "Date" },
+      { "type": "textarea", "id": "text", "label": "Review text" } ] }
+  ],
+  "presets": [{ "name": "PawGuard Gut Check" }]
+}
+{% endschema %}
