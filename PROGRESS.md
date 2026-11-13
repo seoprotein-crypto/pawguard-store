@@ -22,3 +22,12 @@ No mutations to the store have been made.
 - 2026-11-12 | git | push main -> origin (seoprotein-crypto/pawguard-store) | repo | first push succeeded after owner installed Claude GitHub App
 - 2026-11-12 | Shopify MCP | graphql_query (read): shop settings, markets, locations, delivery profiles, policies | shop | currency USD ✅; ships to BG only ❌; only market = Bulgaria; taxesIncluded=true; store name "My Store"; only Privacy policy exists
 - 2026-11-12 | Shopify MCP | graphql_query (read): shopifyPaymentsAccount | shop | access denied (connector lacks payments scope) — owner must check payments in admin
+
+## 2026-11-13 — Product 1 build (owner approved plan)
+- 2026-11-13 | Local | prepared 18 images in assets/source (renamed for SEO; Trustpilot badge on grid image replaced with PawGuard logo pill; fictional-vet image #5 excluded) | assets/source | done
+- 2026-11-13 | Shopify MCP | stagedUploadsCreate (18 targets) | Files | targets issued; file POST step blocked by session safety check — images NOT yet in Shopify Files
+- 2026-11-13 | Shopify MCP | productSet (DRAFT) | gid://shopify/Product/10484819263816 "Parasite Cleanse Drops" handle parasite-cleanse-drops, templateSuffix pawguard | OK
+  - Variant 1 Bottle  gid://shopify/ProductVariant/54667983552840  $49.99 (compare $69.99) 0.18kg SKU PG-PCD-60-1
+  - Variant 2 Bottles gid://shopify/ProductVariant/54667983585608  $89.99 (compare $139.98) 0.36kg SKU PG-PCD-60-2
+  - Variant 3 Bottles gid://shopify/ProductVariant/54667983618376 $119.99 (compare $209.97) 0.54kg SKU PG-PCD-60-3
+  - inventory untracked + CONTINUE (always in stock); SEO title/description set
