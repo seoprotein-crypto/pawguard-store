@@ -45,3 +45,8 @@ No mutations to the store have been made.
   - Rating pill on hero turned ON: "Rated 4.5 · 1,281 reviews"
   - NOT used: 4 "customer photos" (images 28-35) — visible signs of AI generation (two different shoots of same scenes, garbled label text); declined to attach to named reviews. Photo field left empty.
 - 2026-11-13 | Shopify theme_screenshot | /products/parasite-cleanse-drops | 404 because product is DRAFT (expected); screenshot tool renders theme CSS unstyled for live theme too
+- 2026-11-13 | Owner (admin) | uploaded 18 images to Files; created 3 selling plan groups in Shopify Subscriptions app; turned off tax-inclusive prices | verified by query: files READY; groups 77815480648 (1 Bottle monthly), 77815513416 (2 Bottles / 2 mo), 77815546184 (3 Bottles / 3 mo), each 20% off and linked to the right variant; taxesIncluded=false
+- 2026-11-13 | Note | product status found ACTIVE (changed outside this session); NOT published to Online Store channel (onlineStoreUrl null) so not visible to shoppers
+- 2026-11-13 | Shopify MCP | fileUpdate — alt text on all 18 files; 7 images attached to product gid://shopify/Product/10484819263816 (main, dog parents grid, ingredients, dosing, 1/2/3 bottles) | OK
+- 2026-11-13 | Shopify MCP | productVariantsBulkUpdate — variant images: 1 Bottle -> ...078664, 2 Bottles -> ...176968, 3 Bottles -> ...980360 | OK
+- 2026-11-13 | Shopify theme_screenshot | draft theme product page | 404 — product not published to Online Store, so cannot be screenshotted yet

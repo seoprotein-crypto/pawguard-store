@@ -7,6 +7,6 @@
 - 2026-11-12: Store currency now USD. Target market = USA (owner ships 7 days/week). Brand "Paw-Guard"; support email help@paw-guard.com.
 - Product 1: Parasite Cleanse Drops, 60ml, bundles 1/2/3 bottles at $49.99/$89.99/$119.99 (compare-at 69.99/139.98/209.97), 0.18kg each, always in stock, subscription 20% off (1 btl monthly, 2 every 2 mo, 3 every 3 mo).
 - Gaps: ships only to BG, only market Bulgaria, taxesIncluded=true, store name "My Store", only privacy policy. Connector can't read Shopify Payments.
-- Product 1 = gid://shopify/Product/10484819263816 (DRAFT, handle parasite-cleanse-drops, template suffix "pawguard"). Variants ...552840 (1), ...585608 (2), ...618376 (3).
+- Product 1 = gid://shopify/Product/10484819263816 (status ACTIVE but NOT published to Online Store as of 2026-11-13; handle parasite-cleanse-drops, template suffix "pawguard"). Variants ...552840 (1), ...585608 (2), ...618376 (3). Selling plan groups 77815480648/77815513416/77815546184 (Shopify Subscriptions app, 20% off).
 - US shipping: $6.99 under $54, free >= $54. Delivery 4-7 business days. Owner turning off tax-inclusive prices.
 - Vet: Dr. Petya Georgieva, Veterinarian, 12 yrs practice, "Compensated for her time", heading "Reviewed by a veterinarian". No quote.
