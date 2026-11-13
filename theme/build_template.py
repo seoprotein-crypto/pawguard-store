@@ -22,8 +22,8 @@ hero_blocks = {
     "faq_dosing": {"type": "faq", "settings": {
         "title": "Dosing: easy to serve, once a day",
         "content": "<p>Add the daily amount to your dog's food, based on their weight. Every bottle includes a full dosing guide.</p>"
-                   "<table><tr><th>Dog's weight</th><th>Daily serving</th></tr><tr><td>Under 10 lbs</td><td>0.5 ml</td></tr>"
-                   "<tr><td>10–35 lbs</td><td>1 ml</td></tr><tr><td>35–75 lbs</td><td>2 ml</td></tr><tr><td>Over 75 lbs</td><td>3 ml</td></tr></table>",
+                   "<ul><li><strong>Under 10 lbs</strong> — 0.5 ml</li><li><strong>10–35 lbs</strong> — 1 ml</li>"
+                   "<li><strong>35–75 lbs</strong> — 2 ml</li><li><strong>Over 75 lbs</strong> — 3 ml</li></ul>",
         "image": img("pawguard-dosing-chart-by-dog-weight.jpg")}},
     "faq_guarantee": {"type": "faq", "settings": {
         "title": "90-day money-back guarantee",

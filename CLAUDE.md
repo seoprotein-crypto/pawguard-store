@@ -5,6 +5,7 @@
 - Plan: Basic · Currency: EUR · Timezone: EET · Country: Bulgaria
 - Target custom domain: paw-guard.com (registered at Namecheap)
 - Live theme: Horizon (gid://shopify/OnlineStoreTheme/192234422600), role MAIN. DO NOT EDIT.
+- Draft theme: "Horizon – PawGuard DRAFT" (gid://shopify/OnlineStoreTheme/192425886024), role UNPUBLISHED. All theme work goes here.
 
 ## Always-do rules
 1. **Plan first.** Before any mutation or file change, write out the plan (what, why, which API call) and get the owner's OK.

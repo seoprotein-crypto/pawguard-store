@@ -35,3 +35,7 @@ No mutations to the store have been made.
 - 2026-11-13 | Local file | created theme/assets/pawguard.css, pawguard.js | repo | JS syntax OK
 - 2026-11-13 | Local file | created theme/build_template.py -> theme/templates/product.pawguard.json | repo | all page copy (rewritten, PawGuard brand, Probiotic Blend, 35,000+, vet disclosure)
 - 2026-11-13 | Shopify MCP | connection dropped after session restart (502) — themeDuplicate NOT yet run; nothing uploaded to any theme
+- 2026-11-13 | Shopify MCP | themeDuplicate (live Horizon -> copy) | gid://shopify/OnlineStoreTheme/192425886024 "Horizon – PawGuard DRAFT" role UNPUBLISHED | OK
+- 2026-11-13 | Shopify MCP | themeFilesUpsert -> DRAFT theme 192425886024 | assets/pawguard.js, assets/pawguard.css, sections/pg-image-text, pg-vet, pg-comparison, pg-ingredients, pg-faq-tabs, pg-product-hero | OK — MD5 of all 8 files verified identical to repo
+- 2026-11-13 | Shopify MCP | themeFilesUpsert templates/product.pawguard.json | 1st attempt rejected (richtext can't contain <table>); dosing table changed to list; 2nd attempt OK
+- 2026-11-13 | Note | live theme 192234422600 untouched; product stays DRAFT; images still pending upload (owner to upload via Content > Files)
