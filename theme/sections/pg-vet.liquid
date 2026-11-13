@@ -1,0 +1,41 @@
+{%- comment -%} PawGuard — veterinarian section. Only real, consenting vets. Disclosure line is required (FTC). {%- endcomment -%}
+{%- if section.settings.enabled -%}
+<section class="pg pg-vet pg-bg-grey">
+  <div class="pg-wrap">
+    <h2 class="pg-h2">{{ section.settings.heading }}</h2>
+    <div class="pg-vet__card">
+      <div class="pg-vet__photo">
+        {%- if section.settings.photo != blank -%}
+          {{ section.settings.photo | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300, 600', class: 'pg-rounded' }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'pg-rounded pg-placeholder' }}
+        {%- endif -%}
+      </div>
+      <div class="pg-vet__body">
+        {%- if section.settings.quote != blank -%}<blockquote class="pg-quote">“{{ section.settings.quote }}”</blockquote>{%- endif -%}
+        {%- if section.settings.summary != blank -%}<p class="pg-vet__summary">{{ section.settings.summary }}</p>{%- endif -%}
+        <p class="pg-vet__name">{{ section.settings.name }}</p>
+        <p class="pg-vet__title">{{ section.settings.title }}</p>
+        <p class="pg-vet__disclosure">{{ section.settings.disclosure }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ 'pawguard.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{% schema %}
+{
+  "name": "PawGuard vet",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Show section", "default": true },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Reviewed by a veterinarian" },
+    { "type": "image_picker", "id": "photo", "label": "Photo (real vet, with consent)" },
+    { "type": "textarea", "id": "quote", "label": "Quote (only her real words, leave empty if none)" },
+    { "type": "text", "id": "summary", "label": "Short factual line", "default": "Our formula was reviewed by a practising veterinarian." },
+    { "type": "text", "id": "name", "label": "Name", "default": "Dr. Petya Georgieva" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Veterinarian · 12 years of practice" },
+    { "type": "text", "id": "disclosure", "label": "Disclosure (required)", "default": "Compensated for her time." }
+  ],
+  "presets": [{ "name": "PawGuard vet" }]
+}
+{% endschema %}

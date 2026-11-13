@@ -31,3 +31,7 @@ No mutations to the store have been made.
   - Variant 2 Bottles gid://shopify/ProductVariant/54667983585608  $89.99 (compare $139.98) 0.36kg SKU PG-PCD-60-2
   - Variant 3 Bottles gid://shopify/ProductVariant/54667983618376 $119.99 (compare $209.97) 0.54kg SKU PG-PCD-60-3
   - inventory untracked + CONTINUE (always in stock); SEO title/description set
+- 2026-11-13 | Local file | created theme/sections/pg-product-hero.liquid, pg-image-text.liquid, pg-vet.liquid, pg-ingredients.liquid, pg-comparison.liquid, pg-faq-tabs.liquid | repo | Liquid + schema parse-checked OK
+- 2026-11-13 | Local file | created theme/assets/pawguard.css, pawguard.js | repo | JS syntax OK
+- 2026-11-13 | Local file | created theme/build_template.py -> theme/templates/product.pawguard.json | repo | all page copy (rewritten, PawGuard brand, Probiotic Blend, 35,000+, vet disclosure)
+- 2026-11-13 | Shopify MCP | connection dropped after session restart (502) — themeDuplicate NOT yet run; nothing uploaded to any theme

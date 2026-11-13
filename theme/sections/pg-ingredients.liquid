@@ -1,0 +1,53 @@
+{%- comment -%} PawGuard — active ingredient cards + "View all ingredients" dialog {%- endcomment -%}
+<section class="pg pg-ingredients pg-bg-sage">
+  <div class="pg-wrap pg-center">
+    <h2 class="pg-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}<p class="pg-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+    <div class="pg-cards">
+      {%- for block in section.blocks -%}
+        <article class="pg-card" {{ block.shopify_attributes }}>
+          <div class="pg-card__media">
+            {%- if block.settings.tag != blank -%}<span class="pg-card__tag">{{ block.settings.tag }}</span>{%- endif -%}
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 700', sizes: '(min-width: 990px) 30vw, 85vw' }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'pg-placeholder' }}
+            {%- endif -%}
+          </div>
+          <div class="pg-card__body">
+            <h3 class="pg-h4">{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.full_list != blank -%}
+      <button type="button" class="pg-btn pg-btn--outline" data-dialog-open="pg-ing-{{ section.id }}">View all ingredients <span aria-hidden="true">→</span></button>
+      <dialog class="pg-dialog" id="pg-ing-{{ section.id }}">
+        <button type="button" class="pg-dialog__close" data-dialog-close aria-label="Close">×</button>
+        <h3 class="pg-h3">Full formula</h3>
+        <div class="pg-dialog__body">{{ section.settings.full_list }}</div>
+      </dialog>
+    {%- endif -%}
+  </div>
+</section>
+{{ 'pawguard.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pawguard.js' | asset_url }}" defer></script>
+{% schema %}
+{
+  "name": "PawGuard ingredients",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Active ingredients that work at the source" },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "richtext", "id": "full_list", "label": "Full ingredient list (dialog)" }
+  ],
+  "blocks": [
+    { "type": "card", "name": "Ingredient card", "limit": 6, "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "tag", "label": "Tag" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" } ] }
+  ],
+  "presets": [{ "name": "PawGuard ingredients" }]
+}
+{% endschema %}

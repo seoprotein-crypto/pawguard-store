@@ -1,0 +1,52 @@
+{%- comment -%} PawGuard — comparison table vs typical chews & powders {%- endcomment -%}
+<section class="pg pg-compare">
+  <div class="pg-wrap pg-center">
+    <h2 class="pg-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}<p class="pg-sub">{{ section.settings.subheading }}</p>{%- endif -%}
+    <div class="pg-table" role="table" aria-label="{{ section.settings.heading | escape }}">
+      <div class="pg-table__row pg-table__head" role="row">
+        <div role="columnheader"><span class="visually-hidden">Feature</span></div>
+        <div role="columnheader" class="pg-table__brand">
+          {%- if section.settings.us_image != blank -%}{{ section.settings.us_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: section.settings.us_label }}{%- endif -%}
+          <strong>{{ section.settings.us_label }}</strong>
+        </div>
+        <div role="columnheader" class="pg-table__brand">
+          {%- if section.settings.them_image != blank -%}{{ section.settings.them_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: section.settings.them_label }}{%- endif -%}
+          <strong>{{ section.settings.them_label }}</strong>
+        </div>
+      </div>
+      {%- for block in section.blocks -%}
+        <div class="pg-table__row" role="row" {{ block.shopify_attributes }}>
+          <div role="rowheader" class="pg-table__label">{{ block.settings.label }}</div>
+          <div role="cell"><span class="pg-ic pg-ic--yes" aria-label="Yes">✓</span><small class="is-strong">{{ block.settings.us_text }}</small></div>
+          <div role="cell">
+            {%- if block.settings.them_yes -%}<span class="pg-ic pg-ic--yes" aria-label="Yes">✓</span>{%- else -%}<span class="pg-ic pg-ic--no" aria-label="No">✕</span>{%- endif -%}
+            <small>{{ block.settings.them_text }}</small>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{{ 'pawguard.css' | asset_url | stylesheet_tag }}
+{% schema %}
+{
+  "name": "PawGuard comparison",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why one ingredient isn't enough" },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "image_picker", "id": "us_image", "label": "PawGuard image" },
+    { "type": "text", "id": "us_label", "label": "PawGuard label", "default": "PawGuard Cleanse" },
+    { "type": "image_picker", "id": "them_image", "label": "Others image" },
+    { "type": "text", "id": "them_label", "label": "Others label", "default": "Typical chews & powders" }
+  ],
+  "blocks": [
+    { "type": "row", "name": "Row", "settings": [
+      { "type": "text", "id": "label", "label": "Feature" },
+      { "type": "text", "id": "us_text", "label": "PawGuard caption" },
+      { "type": "checkbox", "id": "them_yes", "label": "Others: tick (otherwise cross)", "default": false },
+      { "type": "text", "id": "them_text", "label": "Others caption" } ] }
+  ],
+  "presets": [{ "name": "PawGuard comparison" }]
+}
+{% endschema %}

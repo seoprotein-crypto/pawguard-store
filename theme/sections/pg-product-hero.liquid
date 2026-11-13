@@ -1,0 +1,214 @@
+{%- comment -%}
+  PawGuard — product first fold: gallery + buy box with bundle cards,
+  one-time / subscribe toggle, ship-date line, add to cart, and FAQ accordion.
+  Self-contained (does not depend on Horizon internals).
+{%- endcomment -%}
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign has_plans = false
+  if product.selling_plan_groups.size > 0
+    assign has_plans = true
+  endif
+-%}
+<section class="pg pg-hero" id="pg-hero-{{ section.id }}" data-section="{{ section.id }}">
+  <div class="pg-wrap pg-hero__grid">
+    {%- comment -%} GALLERY {%- endcomment -%}
+    <div class="pg-gallery">
+      <div class="pg-gallery__main">
+        {%- if product.media.size > 0 -%}
+          {%- for media in product.media -%}
+            {%- if media.media_type == 'image' -%}
+              <img
+                class="pg-gallery__img{% if forloop.first %} is-active{% endif %}"
+                data-media-id="{{ media.id }}"
+                src="{{ media.preview_image | image_url: width: 1200 }}"
+                srcset="{{ media.preview_image | image_url: width: 600 }} 600w, {{ media.preview_image | image_url: width: 900 }} 900w, {{ media.preview_image | image_url: width: 1200 }} 1200w"
+                sizes="(min-width: 990px) 50vw, 100vw"
+                alt="{{ media.alt | escape }}"
+                width="{{ media.preview_image.width }}"
+                height="{{ media.preview_image.height }}"
+                {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+              >
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'pg-gallery__img is-active' }}
+        {%- endif -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="pg-gallery__thumbs" role="list">
+          {%- for media in product.media -%}
+            {%- if media.media_type == 'image' -%}
+              <button type="button" class="pg-thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ media.id }}" aria-label="Show image {{ forloop.index }}">
+                <img src="{{ media.preview_image | image_url: width: 160 }}" alt="" width="80" height="80" loading="lazy">
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} BUY BOX {%- endcomment -%}
+    <div class="pg-buy">
+      {%- if section.settings.show_rating -%}
+        <div class="pg-pill"><span class="pg-stars" aria-hidden="true">★★★★★</span> {{ section.settings.rating_text }}</div>
+      {%- endif -%}
+      {%- if section.settings.eyebrow != blank -%}<p class="pg-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1 class="pg-h1">{{ section.settings.headline | default: product.title }}</h1>
+      <p class="pg-product-name">{{ product.title }}</p>
+
+      {%- comment -%} Tabs {%- endcomment -%}
+      <div class="pg-tabs" data-tabs>
+        <div class="pg-tabs__list" role="tablist">
+          <button type="button" role="tab" class="pg-tab is-active" data-tab="desc" aria-selected="true">Description</button>
+          <button type="button" role="tab" class="pg-tab" data-tab="benefits" aria-selected="false">Benefits</button>
+          <button type="button" role="tab" class="pg-tab" data-tab="dosing" aria-selected="false">Dosing</button>
+        </div>
+        <div class="pg-tabs__panel is-active" data-panel="desc" role="tabpanel">
+          {{ section.settings.tab_description }}
+          {%- if section.settings.proof_line != blank -%}<p class="pg-proof">🏆 {{ section.settings.proof_line }}</p>{%- endif -%}
+        </div>
+        <div class="pg-tabs__panel" data-panel="benefits" role="tabpanel" hidden>{{ section.settings.tab_benefits }}</div>
+        <div class="pg-tabs__panel" data-panel="dosing" role="tabpanel" hidden>{{ section.settings.tab_dosing }}</div>
+      </div>
+
+      {%- assign form_id = 'pg-form-' | append: section.id -%}
+      {%- form 'product', product, class: 'pg-form', id: form_id, novalidate: 'novalidate' -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-input>
+        <input type="hidden" name="selling_plan" value="" data-plan-input disabled>
+
+        <h2 class="pg-h3">Choose your bundle:</h2>
+        <div class="pg-bundles" role="radiogroup" aria-label="Choose your bundle">
+          {%- for variant in product.variants -%}
+            {%- liquid
+              assign supply = 'Supply'
+              case forloop.index
+                when 1
+                  assign supply = '1-Month Supply'
+                  assign tag = section.settings.tag_1
+                  assign vimg = section.settings.bundle_img_1
+                when 2
+                  assign supply = '2-Month Supply'
+                  assign tag = section.settings.tag_2
+                  assign vimg = section.settings.bundle_img_2
+                when 3
+                  assign supply = '3-Month Supply'
+                  assign tag = section.settings.tag_3
+                  assign vimg = section.settings.bundle_img_3
+              endcase
+              assign plan_price = ''
+              assign plan_id = ''
+              if variant.selling_plan_allocations.size > 0
+                assign alloc = variant.selling_plan_allocations | first
+                assign plan_price = alloc.price | money
+                assign plan_id = alloc.selling_plan.id
+              endif
+            -%}
+            <label class="pg-bundle{% if variant.id == current_variant.id %} is-active{% endif %}" data-bundle
+              data-variant-id="{{ variant.id }}"
+              data-media-id="{{ variant.featured_media.id }}"
+              data-price="{{ variant.price | money }}"
+              data-plan-id="{{ plan_id }}"
+              data-plan-price="{{ plan_price }}">
+              <input type="radio" name="pg-bundle-{{ section.id }}" value="{{ variant.id }}" {% if variant.id == current_variant.id %}checked{% endif %}>
+              {%- if tag != blank -%}<span class="pg-bundle__tag">{{ tag }}</span>{%- endif -%}
+              <span class="pg-bundle__img">
+                {%- if vimg != blank -%}
+                  <img src="{{ vimg | image_url: width: 160 }}" alt="" width="56" height="56" loading="lazy">
+                {%- elsif variant.featured_media -%}
+                  <img src="{{ variant.featured_media | image_url: width: 160 }}" alt="" width="56" height="56" loading="lazy">
+                {%- endif -%}
+              </span>
+              <span class="pg-bundle__text">
+                <strong>{{ variant.title }}</strong>
+                <small>{{ supply }}</small>
+              </span>
+              <span class="pg-bundle__price">
+                <strong data-bundle-price>{{ variant.price | money }}</strong>
+                {%- if variant.compare_at_price > variant.price -%}<s>{{ variant.compare_at_price | money }}</s>{%- endif -%}
+              </span>
+            </label>
+          {%- endfor -%}
+        </div>
+
+        {%- if has_plans -%}
+          <div class="pg-purchase" role="radiogroup" aria-label="Purchase option">
+            <label class="pg-purchase__opt is-active">
+              <input type="radio" name="pg-ptype-{{ section.id }}" value="once" checked>
+              <span><strong>One-time purchase</strong></span>
+            </label>
+            <label class="pg-purchase__opt">
+              <input type="radio" name="pg-ptype-{{ section.id }}" value="sub">
+              <span><strong>{{ section.settings.sub_title }}</strong><small>{{ section.settings.sub_note }}</small></span>
+            </label>
+          </div>
+        {%- endif -%}
+
+        <p class="pg-ship"><span class="pg-dot" aria-hidden="true"></span> {{ section.settings.stock_text }} <strong data-ship-date>tomorrow</strong></p>
+
+        <button type="submit" name="add" class="pg-btn pg-btn--primary pg-atc" {% unless current_variant.available %}disabled{% endunless %}>
+          <span data-atc-label>Add to cart — <span data-atc-price>{{ current_variant.price | money }}</span></span>
+        </button>
+        <p class="pg-guarantee">✓ {{ section.settings.guarantee_line }}</p>
+      {%- endform -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="pg-accordion">
+          {%- for block in section.blocks -%}
+            <details class="pg-acc" {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.title }}</summary>
+              <div class="pg-acc__body">
+                {{ block.settings.content }}
+                {%- if block.settings.image != blank -%}
+                  <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+                {%- endif -%}
+              </div>
+            </details>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{{ 'pawguard.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pawguard.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "PawGuard product hero",
+  "tag": "div",
+  "settings": [
+    { "type": "checkbox", "id": "show_rating", "label": "Show star rating pill (only with real reviews)", "default": false },
+    { "type": "text", "id": "rating_text", "label": "Rating text", "default": "Rated 4.9 Excellent" },
+    { "type": "text", "id": "eyebrow", "label": "Small line above headline", "default": "Trusted by 35,000+ dog owners" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Less tummy trouble. More tail-wagging moments." },
+    { "type": "richtext", "id": "tab_description", "label": "Description tab" },
+    { "type": "text", "id": "proof_line", "label": "Trophy line", "default": "Trusted by 35,000+ dog owners" },
+    { "type": "richtext", "id": "tab_benefits", "label": "Benefits tab" },
+    { "type": "richtext", "id": "tab_dosing", "label": "Dosing tab" },
+    { "type": "text", "id": "tag_1", "label": "Bundle 1 tag" },
+    { "type": "text", "id": "tag_2", "label": "Bundle 2 tag", "default": "Most Popular" },
+    { "type": "text", "id": "tag_3", "label": "Bundle 3 tag", "default": "Best Value" },
+    { "type": "image_picker", "id": "bundle_img_1", "label": "Bundle 1 thumbnail" },
+    { "type": "image_picker", "id": "bundle_img_2", "label": "Bundle 2 thumbnail" },
+    { "type": "image_picker", "id": "bundle_img_3", "label": "Bundle 3 thumbnail" },
+    { "type": "text", "id": "sub_title", "label": "Subscription title", "default": "Subscribe & save an extra 20%" },
+    { "type": "text", "id": "sub_note", "label": "Subscription note", "default": "Ships automatically · Cancel or adjust anytime" },
+    { "type": "text", "id": "stock_text", "label": "Stock line", "default": "In stock, ready to ship by" },
+    { "type": "text", "id": "guarantee_line", "label": "Guarantee line", "default": "90-day money-back guarantee · Free US shipping over $54" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Question", "default": "Question" },
+        { "type": "richtext", "id": "content", "label": "Answer" },
+        { "type": "image_picker", "id": "image", "label": "Image (optional)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "PawGuard product hero" }]
+}
+{% endschema %}

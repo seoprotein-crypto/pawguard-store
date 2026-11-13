@@ -1,0 +1,48 @@
+{%- comment -%} PawGuard — image + text with optional checklist rows (used for "deeper down" and "works at the source") {%- endcomment -%}
+<section class="pg pg-split pg-bg-{{ section.settings.bg }}">
+  <div class="pg-wrap pg-split__grid{% if section.settings.image_left %} is-image-left{% endif %}">
+    <div class="pg-split__text">
+      <h2 class="pg-h2">{{ section.settings.heading }}</h2>
+      {{ section.settings.text }}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="pg-checks">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="pg-check" aria-hidden="true">✓</span>
+              <span><strong>{{ block.settings.title }}</strong>{%- if block.settings.text != blank -%}<small>{{ block.settings.text }}</small>{%- endif -%}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+    <figure class="pg-split__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 45vw, 100vw', widths: '400, 700, 1000, 1200', class: 'pg-rounded' }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'pg-rounded pg-placeholder' }}
+      {%- endif -%}
+      {%- if section.settings.caption != blank -%}<figcaption class="pg-caption">{{ section.settings.caption }}</figcaption>{%- endif -%}
+    </figure>
+  </div>
+</section>
+{{ 'pawguard.css' | asset_url | stylesheet_tag }}
+{% schema %}
+{
+  "name": "PawGuard image + text",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "caption", "label": "Small caption under image" },
+    { "type": "checkbox", "id": "image_left", "label": "Image on the left", "default": false },
+    { "type": "select", "id": "bg", "label": "Background", "default": "white", "options": [
+      { "value": "white", "label": "White" }, { "value": "sage", "label": "Sage" }, { "value": "cream", "label": "Cream" }, { "value": "grey", "label": "Light grey" } ] }
+  ],
+  "blocks": [
+    { "type": "check", "name": "Checklist row", "settings": [
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "text", "id": "text", "label": "Small text" } ] }
+  ],
+  "presets": [{ "name": "PawGuard image + text" }]
+}
+{% endschema %}
