@@ -67,3 +67,6 @@ No mutations to the store have been made.
 - 2026-11-13 | Shopify theme_bash | working copy 192441876808 | uploaded quiz section/js/css/template (MD5 identical to repo); header CTA -> "Take the Gut Check" -> shopify://pages/gut-check | pending commit
 - 2026-11-13 | Shopify MCP | pageCreate "The Gut Check" gid://shopify/Page/158719770952 handle gut-check, published, templateSuffix gut-check, SEO title/description metafields | OK (LIVE; renders with the live theme's default page template until working copy is published)
 - 2026-11-13 | Shopify theme_screenshot | /pages/gut-check mobile | quiz renders; sticky Continue button overlapped input -> made footer non-sticky
+- 2026-11-13 | Owner | published "PawGuard – working copy" (192441876808) -> now MAIN (new header live). Quiz edits left pending on it could not be committed (main_theme refused).
+- 2026-11-13 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 2" gid://shopify/OnlineStoreTheme/192443515208 | OK; quiz files + header CTA copied from pending workspace (MD5 identical to repo)
+- 2026-11-13 | Shopify theme_commit e0645f47 | working copy 2 | rejected pg-gut-check.liquid (block name > 25 chars) + template depending on it -> renamed block "Customer review"; re-commit pending

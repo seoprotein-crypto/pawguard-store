@@ -4,8 +4,9 @@
 - Store: mwnyhj-kk.myshopify.com ("My Store"), owner login seoprotein@gmail.com
 - Plan: Basic · Currency: USD (store default) · Timezone: EET · Business country: Bulgaria · Selling market: United States
 - Target custom domain: paw-guard.com (registered at Namecheap)
-- Live theme (since 2026-11-13): "Horizon – PawGuard DRAFT" (gid://shopify/OnlineStoreTheme/192425886024), role MAIN.
-- Old theme: "Horizon" (gid://shopify/OnlineStoreTheme/192234422600), UNPUBLISHED — rollback option.
+- Live theme (since 2026-11-13, owner published): "PawGuard – working copy" (gid://shopify/OnlineStoreTheme/192441876808), role MAIN.
+- Working copy for edits: "PawGuard – working copy 2" (gid://shopify/OnlineStoreTheme/192443515208).
+- Older backups: "Horizon – PawGuard DRAFT" (192425886024), "Horizon" (192234422600).
 
 ## Always-do rules (updated 2026-11-13 by owner: "work on the live store from now on, don't ask for approval")
 1. **No approval needed.** Make store changes directly and live (products ACTIVE + published, discounts active, pages published). Briefly say what you're doing as you go.
