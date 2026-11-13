@@ -76,3 +76,4 @@ No mutations to the store have been made.
 - 2026-11-13 | Test (Playwright, scratchpad) | full quiz run on preview: all steps OK, 3-pick limit OK, follow-ups OK, strong signs -> 3 Bottles, dose 2 ml, vet warning OK, prices sub $95.99 / once $119.99 OK; only errors = blocked third-party trackers
 - 2026-11-13 | FINDING | storefront reports product SOLD OUT for US buyers: /cart/add.js 422 "already sold out" although admin availableForSale=true, untracked, published. US market has catalogsCount 0, webPresences none, delivery.shipping null (Bulgaria market was removed). Store cannot take orders until owner fixes Settings > Markets.
 - 2026-11-13 | Shopify theme_commit | working copy 2 | quiz tick z-index fix
+- 2026-11-13 | Shopify theme_publish working copy 2 (192443515208) | REFUSED ("Only agent-created themes can be published here") — owner asked to publish; owner to click Publish in admin
