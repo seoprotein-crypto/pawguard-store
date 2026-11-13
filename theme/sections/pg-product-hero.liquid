@@ -147,7 +147,7 @@
         <p class="pg-ship"><span class="pg-dot" aria-hidden="true"></span> {{ section.settings.stock_text }} <strong data-ship-date>tomorrow</strong></p>
 
         <button type="submit" name="add" class="pg-btn pg-btn--primary pg-atc" {% unless current_variant.available %}disabled{% endunless %}>
-          <span data-atc-label>Add to cart — <span data-atc-price>{{ current_variant.price | money }}</span></span>
+          {%- if current_variant.available -%}<span data-atc-label>Add to cart — <span data-atc-price>{{ current_variant.price | money }}</span></span>{%- else -%}<span>Sold out</span>{%- endif -%}
         </button>
         <p class="pg-guarantee">✓ {{ section.settings.guarantee_line }}</p>
       {%- endform -%}

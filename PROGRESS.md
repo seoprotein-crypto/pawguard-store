@@ -50,3 +50,7 @@ No mutations to the store have been made.
 - 2026-11-13 | Shopify MCP | fileUpdate — alt text on all 18 files; 7 images attached to product gid://shopify/Product/10484819263816 (main, dog parents grid, ingredients, dosing, 1/2/3 bottles) | OK
 - 2026-11-13 | Shopify MCP | productVariantsBulkUpdate — variant images: 1 Bottle -> ...078664, 2 Bottles -> ...176968, 3 Bottles -> ...980360 | OK
 - 2026-11-13 | Shopify theme_screenshot | draft theme product page | 404 — product not published to Online Store, so cannot be screenshotted yet
+- 2026-11-13 | Shopify MCP | publishablePublish product -> Online Store publication 307229229384 | OK (owner asked to publish everything)
+- 2026-11-13 | Shopify theme_screenshot | draft theme product page desktop + mobile | renders all 8 sections; found mobile overflow (hero grid) + faded ATC
+- 2026-11-13 | Shopify theme_bash + theme_commit c6d1e16f | DRAFT theme | assets/pawguard.css (minmax grid fix), sections/pg-product-hero.liquid ("Sold out" label when unavailable) | saved; MD5 identical to repo
+- 2026-11-13 | Note | storefront shows "Sold out": only active market is United States (Bulgaria removed) — non-US visitors cannot buy; admin availableForSale=true. Theme NOT published yet — awaiting owner's explicit yes. Password removal = owner action in admin.
