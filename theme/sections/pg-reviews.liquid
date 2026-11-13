@@ -1,0 +1,107 @@
+{%- comment -%}
+  PawGuard — customer reviews. Summary + star distribution + review cards.
+  Only real reviews from real customers. Counts must come from real data.
+{%- endcomment -%}
+{%- liquid
+  assign c5 = section.settings.count_5 | default: 0
+  assign c4 = section.settings.count_4 | default: 0
+  assign c3 = section.settings.count_3 | default: 0
+  assign c2 = section.settings.count_2 | default: 0
+  assign c1 = section.settings.count_1 | default: 0
+  assign total = c5 | plus: c4 | plus: c3 | plus: c2 | plus: c1
+  assign show_first = section.settings.show_first
+-%}
+<section class="pg pg-reviews" id="reviews">
+  <div class="pg-wrap pg-narrow">
+    <h2 class="pg-h2 pg-center">{{ section.settings.heading }}</h2>
+
+    {%- if total > 0 -%}
+      <div class="pg-rv-summary">
+        <div class="pg-rv-avg">
+          <span class="pg-rv-stars" aria-hidden="true">★★★★★</span>
+          <p><strong>{{ section.settings.average }} out of 5</strong></p>
+          {%- liquid
+            if total >= 1000
+              assign th = total | divided_by: 1000
+              assign rest = total | modulo: 1000 | plus: 1000 | append: '' | slice: 1, 3
+              assign total_label = th | append: ',' | append: rest
+            else
+              assign total_label = total
+            endif
+          -%}
+          <p class="pg-rv-muted">Based on {{ total_label }} reviews</p>
+        </div>
+        <ul class="pg-rv-bars" aria-label="Rating distribution">
+          {%- for n in (1..5) -%}
+            {%- assign stars = 6 | minus: n -%}
+            {%- case stars -%}
+              {%- when 5 -%}{%- assign c = c5 -%}
+              {%- when 4 -%}{%- assign c = c4 -%}
+              {%- when 3 -%}{%- assign c = c3 -%}
+              {%- when 2 -%}{%- assign c = c2 -%}
+              {%- else -%}{%- assign c = c1 -%}
+            {%- endcase -%}
+            {%- assign pct = c | times: 100.0 | divided_by: total | round: 1 -%}
+            <li>
+              <span class="pg-rv-label">{{ stars }} ★</span>
+              <span class="pg-rv-track"><span class="pg-rv-fill" style="width: {{ pct }}%"></span></span>
+              <span class="pg-rv-count">{{ c }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    <div class="pg-rv-list" data-reviews>
+      {%- for block in section.blocks -%}
+        {%- assign r = block.settings.rating | default: 5 -%}
+        <article class="pg-rv{% if forloop.index > show_first %} is-hidden{% endif %}" {{ block.shopify_attributes }}>
+          <div class="pg-rv-head">
+            <span class="pg-rv-stars" aria-label="{{ r }} out of 5 stars">
+              {%- for i in (1..5) -%}{%- if i <= r -%}★{%- else -%}<span class="pg-rv-off">★</span>{%- endif -%}{%- endfor -%}
+            </span>
+            {%- if block.settings.date != blank -%}<time class="pg-rv-muted">{{ block.settings.date }}</time>{%- endif -%}
+          </div>
+          <p class="pg-rv-name">
+            {{ block.settings.name }}
+            {%- if block.settings.verified -%}<span class="pg-rv-verified">✓ Verified buyer</span>{%- endif -%}
+          </p>
+          <p class="pg-rv-text">{{ block.settings.text }}</p>
+          {%- if block.settings.image != blank -%}
+            <img class="pg-rv-img" src="{{ block.settings.image | image_url: width: 240 }}" alt="Photo shared by {{ block.settings.name | escape }}" width="96" height="96" loading="lazy">
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+    {%- if section.blocks.size > show_first -%}
+      <div class="pg-center"><button type="button" class="pg-btn pg-btn--outline" data-reviews-more>Show more reviews</button></div>
+    {%- endif -%}
+  </div>
+</section>
+{{ 'pawguard.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pawguard.js' | asset_url }}" defer></script>
+{% schema %}
+{
+  "name": "PawGuard reviews",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Customer Reviews" },
+    { "type": "text", "id": "average", "label": "Average rating (e.g. 4.5)", "default": "4.5" },
+    { "type": "number", "id": "count_5", "label": "Number of 5-star reviews" },
+    { "type": "number", "id": "count_4", "label": "Number of 4-star reviews" },
+    { "type": "number", "id": "count_3", "label": "Number of 3-star reviews" },
+    { "type": "number", "id": "count_2", "label": "Number of 2-star reviews" },
+    { "type": "number", "id": "count_1", "label": "Number of 1-star reviews" },
+    { "type": "range", "id": "show_first", "label": "Reviews shown before 'Show more'", "min": 1, "max": 20, "step": 1, "default": 5 }
+  ],
+  "blocks": [
+    { "type": "review", "name": "Review", "settings": [
+      { "type": "text", "id": "name", "label": "First name only" },
+      { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "text", "id": "date", "label": "Date (MM/DD/YYYY)" },
+      { "type": "textarea", "id": "text", "label": "Review text (customer's own words)" },
+      { "type": "checkbox", "id": "verified", "label": "Verified buyer", "default": true },
+      { "type": "image_picker", "id": "image", "label": "Customer photo (only real photos sent by this customer)" } ] }
+  ],
+  "presets": [{ "name": "PawGuard reviews" }]
+}
+{% endschema %}

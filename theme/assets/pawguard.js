@@ -103,7 +103,18 @@
     update();
   }
 
+  function initReviews(root) {
+    root.querySelectorAll('[data-reviews-more]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var sec = btn.closest('.pg-reviews');
+        sec.querySelectorAll('.pg-rv.is-hidden').forEach(function (r) { r.classList.remove('is-hidden'); });
+        btn.parentNode.removeChild(btn);
+      });
+    });
+  }
+
   function init() {
+    initReviews(document);
     initTabs(document);
     initDialogs(document);
     document.querySelectorAll('.pg-hero').forEach(initHero);
@@ -113,7 +124,7 @@
   else init();
   document.addEventListener('shopify:section:load', function (e) {
     window.__pawguardInit = true;
-    initTabs(e.target); initDialogs(e.target);
+    initTabs(e.target); initDialogs(e.target); initReviews(e.target);
     e.target.querySelectorAll('.pg-hero').forEach(initHero);
   });
 })();

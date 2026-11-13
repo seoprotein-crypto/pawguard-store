@@ -39,3 +39,9 @@ No mutations to the store have been made.
 - 2026-11-13 | Shopify MCP | themeFilesUpsert -> DRAFT theme 192425886024 | assets/pawguard.js, assets/pawguard.css, sections/pg-image-text, pg-vet, pg-comparison, pg-ingredients, pg-faq-tabs, pg-product-hero | OK — MD5 of all 8 files verified identical to repo
 - 2026-11-13 | Shopify MCP | themeFilesUpsert templates/product.pawguard.json | 1st attempt rejected (richtext can't contain <table>); dosing table changed to list; 2nd attempt OK
 - 2026-11-13 | Note | live theme 192234422600 untouched; product stays DRAFT; images still pending upload (owner to upload via Content > Files)
+- 2026-11-13 | Local file | added theme/sections/pg-reviews.liquid; reviews CSS + "show more" JS; build_template.py adds reviews section + rating pill | repo | Liquid/JS checks OK
+- 2026-11-13 | Shopify theme_bash + theme_commit 22cbd2b8 | DRAFT theme 192425886024 | sections/pg-reviews.liquid, assets/pawguard.css, assets/pawguard.js, templates/product.pawguard.json | saved; MD5 of section/css/js identical to repo
+  - Reviews: 10 owner-supplied reviews (first names only, owner-supplied dates, "Verified buyer"); summary 4.5 / 1,281 with owner-supplied distribution 890/255/57/19/60 (avg 4.48)
+  - Rating pill on hero turned ON: "Rated 4.5 · 1,281 reviews"
+  - NOT used: 4 "customer photos" (images 28-35) — visible signs of AI generation (two different shoots of same scenes, garbled label text); declined to attach to named reviews. Photo field left empty.
+- 2026-11-13 | Shopify theme_screenshot | /products/parasite-cleanse-drops | 404 because product is DRAFT (expected); screenshot tool renders theme CSS unstyled for live theme too

@@ -78,6 +78,23 @@ compare_rows = [
 compare_blocks = {f"r{i}": {"type": "row", "settings": {"label": l, "us_text": u, "them_yes": y, "them_text": t}}
                   for i, (l, u, y, t) in enumerate(compare_rows, 1)}
 
+
+reviews = [
+  ("Jennifer", "06/17/2026", "I was expecting a struggle because my dog is incredibly picky, but mixing the drops into his food was surprisingly easy. He ate his dinner like usual and didn't seem to notice anything different."),
+  ("Ashley", "06/18/2026", "I've tried giving my dog different supplements before, and some were such a hassle. What I like about these drops is how simple they are to add to his daily routine. No complicated preparation."),
+  ("Sarah", "06/23/2026", "Having two dogs means keeping track of a lot of things. I appreciate having a dropper bottle that's easy to handle and store. It's a convenient format compared to some of the powders we've used."),
+  ("Emily", "06/28/2026", "I used to dread measuring out powdered supplements because I'd always end up spilling some on the counter. The liquid format is much easier for me to manage, especially during our busy mornings."),
+  ("James", "07/08/2026", "The bottle arrived neatly packaged, and the dropper was straightforward to use. I also liked that the directions were easy to read. It's those little details that make a product feel thoughtfully designed."),
+  ("Michael", "07/17/2026", "Between work, the kids, and taking care of our Labrador, mornings can get pretty hectic. I appreciate products that don't require a lot of extra steps. Adding drops to his food takes very little time."),
+  ("Megan", "07/19/2026", "My Beagle has a talent for finding anything unusual in his food, so I wasn't sure how he'd react. Surprisingly, he finished his meal without any fuss. That was a pleasant surprise for me."),
+  ("Rachel", "08/07/2026", "I like that the bottle doesn't take up much room in our pet supplies cabinet. The dropper makes it convenient to dispense the liquid, and the packaging is compact enough to bring along when traveling."),
+  ("Lauren", "08/07/2026", "Sometimes pet products come with confusing instructions, but I appreciate a simple routine. I always check the directions carefully before giving my dog anything new, and having clear information makes that process easier."),
+  ("Nicole", "08/11/2026", "I'm pretty particular about what I give my Golden Retriever, so I always take time to research ingredients and ask our veterinarian questions. I do appreciate the convenience of a liquid product that fits into an established feeding routine."),
+]
+# newest first
+review_blocks = {f"rv{i}": {"type": "review", "settings": {"name": n, "rating": 5, "date": d, "text": t, "verified": True}}
+                 for i, (n, d, t) in enumerate(reversed(reviews), 1)}
+
 template = {
   "sections": {
     "hero": {
@@ -85,7 +102,8 @@ template = {
       "blocks": hero_blocks,
       "block_order": list(hero_blocks),
       "settings": {
-        "show_rating": False,
+        "show_rating": True,
+        "rating_text": "Rated 4.5 · 1,281 reviews",
         "eyebrow": "Trusted by 35,000+ dog owners",
         "headline": "Less tummy trouble. More tail-wagging moments.",
         "tab_description": "<p>Support your dog from the inside out. PawGuard Parasite Cleanse Drops are made for dogs dealing with:</p>"
@@ -173,6 +191,13 @@ template = {
         "them_image": img("typical-supplement-tub.jpg"), "them_label": "Typical chews & powders"
       }
     },
+    "reviews": {
+      "type": "pg-reviews",
+      "blocks": review_blocks,
+      "block_order": list(review_blocks),
+      "settings": {"heading": "Customer Reviews", "average": "4.5",
+                   "count_5": 890, "count_4": 255, "count_3": 57, "count_2": 19, "count_1": 60, "show_first": 5}
+    },
     "faq": {
       "type": "pg-faq-tabs",
       "blocks": faq_blocks,
@@ -181,7 +206,7 @@ template = {
                    "tab_1": "Product", "tab_2": "Shipping", "tab_3": "Orders & payment"}
     }
   },
-  "order": ["hero", "deeper", "source", "vet", "ingredients", "compare", "faq"]
+  "order": ["hero", "deeper", "source", "vet", "ingredients", "compare", "reviews", "faq"]
 }
 
 out = pathlib.Path(__file__).parent / "templates" / "product.pawguard.json"
