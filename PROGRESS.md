@@ -70,3 +70,4 @@ No mutations to the store have been made.
 - 2026-11-13 | Owner | published "PawGuard – working copy" (192441876808) -> now MAIN (new header live). Quiz edits left pending on it could not be committed (main_theme refused).
 - 2026-11-13 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 2" gid://shopify/OnlineStoreTheme/192443515208 | OK; quiz files + header CTA copied from pending workspace (MD5 identical to repo)
 - 2026-11-13 | Shopify theme_commit e0645f47 | working copy 2 | rejected pg-gut-check.liquid (block name > 25 chars) + template depending on it -> renamed block "Customer review"; re-commit pending
+- 2026-11-13 | Shopify theme_commit 48dbe31e | working copy 2 192443515208 | pg-gut-check.liquid saved; verified via files query: quiz js/css/section/template present, MD5 identical to repo; header CTA = "Take the Gut Check" -> /pages/gut-check. Awaiting owner publish.
