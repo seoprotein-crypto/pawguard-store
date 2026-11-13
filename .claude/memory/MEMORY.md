@@ -10,3 +10,5 @@
 - Product 1 = gid://shopify/Product/10484819263816 (status ACTIVE but NOT published to Online Store as of 2026-11-13; handle parasite-cleanse-drops, template suffix "pawguard"). Variants ...552840 (1), ...585608 (2), ...618376 (3). Selling plan groups 77815480648/77815513416/77815546184 (Shopify Subscriptions app, 20% off).
 - US shipping: $6.99 under $54, free >= $54. Delivery 4-7 business days. Owner turning off tax-inclusive prices.
 - Vet: Dr. Petya Georgieva, Veterinarian, 12 yrs practice, "Compensated for her time", heading "Reviewed by a veterinarian". No quote.
+- 2026-11-13: Owner published "Horizon – PawGuard DRAFT" (192425886024) as MAIN. Old Horizon 192234422600 unpublished. Owner rule change: work live, no approval needed (still confirm irreversible actions). theme_publish refuses non-agent-created themes; MAIN theme writes blocked -> edit a copy, then publish.
+- Only active market: United States (Bulgaria removed) — non-US visitors see Sold out.

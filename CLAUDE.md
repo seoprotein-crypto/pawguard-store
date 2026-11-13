@@ -2,21 +2,20 @@
 
 ## Store facts
 - Store: mwnyhj-kk.myshopify.com ("My Store"), owner login seoprotein@gmail.com
-- Plan: Basic · Currency: EUR · Timezone: EET · Country: Bulgaria
+- Plan: Basic · Currency: USD (store default) · Timezone: EET · Business country: Bulgaria · Selling market: United States
 - Target custom domain: paw-guard.com (registered at Namecheap)
-- Live theme: Horizon (gid://shopify/OnlineStoreTheme/192234422600), role MAIN. DO NOT EDIT.
-- Draft theme: "Horizon – PawGuard DRAFT" (gid://shopify/OnlineStoreTheme/192425886024), role UNPUBLISHED. All theme work goes here.
+- Live theme (since 2026-11-13): "Horizon – PawGuard DRAFT" (gid://shopify/OnlineStoreTheme/192425886024), role MAIN.
+- Old theme: "Horizon" (gid://shopify/OnlineStoreTheme/192234422600), UNPUBLISHED — rollback option.
 
-## Always-do rules
-1. **Plan first.** Before any mutation or file change, write out the plan (what, why, which API call) and get the owner's OK.
-2. **Never touch the live theme.** All theme work goes in a draft copy (`themeDuplicate` -> edit the copy -> owner previews -> owner publishes).
-   Never call `themePublish`, `themeDelete`, or `themeFilesUpsert`/`themeFilesDelete` on a theme with role MAIN.
-3. **Draft by default.** New products get `status: DRAFT`. New discounts are created with a future start date or left inactive, and new pages are created with `isPublished: false`.
-4. **Log everything.** Every Shopify API mutation and every local file change goes into PROGRESS.md (date, tool, operation, target ID, result).
+## Always-do rules (updated 2026-11-13 by owner: "work on the live store from now on, don't ask for approval")
+1. **No approval needed.** Make store changes directly and live (products ACTIVE + published, discounts active, pages published). Briefly say what you're doing as you go.
+2. **Still confirm before anything that cannot be undone** (deleting products, files, themes, customers, orders) or that spends money.
+3. **Live theme edits:** the Shopify tools refuse writes to the MAIN theme. So: duplicate the live theme (or reuse an unpublished working copy), edit + screenshot-check it, then publish it (if the tool refuses, ask the owner to click Publish in Online Store > Themes). Keep the previous theme as rollback.
+4. **Log everything.** Every Shopify API mutation and every file change goes into PROGRESS.md (date, tool, operation, target ID, result), then commit + push to GitHub.
 5. **No guessing IDs.** Look up IDs with a query first.
-6. **Prices are TBD.** Don't invent prices. Use a placeholder only in DRAFT products and mark it "PRICE TBD" in PROGRESS.md.
-7. **Beginner-friendly.** Explain each step in plain language and say where to click in Shopify admin to review it.
+6. **No made-up content.** Never invent prices, reviews, testimonials, ratings, stats or endorsements. Customer photos and expert endorsements must be real.
+7. **Beginner-friendly.** Explain in plain language and say where to click in Shopify admin to check the result.
 8. **No secrets in files.** Never write API tokens or passwords into this repo.
 
 ## Workflow for each task
-Plan -> owner approves -> execute in draft -> log in PROGRESS.md -> owner reviews in admin -> owner publishes.
+Do it live -> verify (query / screenshot) -> log in PROGRESS.md -> commit + push -> tell the owner what changed and where to see it.
