@@ -1,0 +1,56 @@
+{%- comment -%} PawGuard — trust strip under the home hero: icon + title + short line, up to 4 items. {%- endcomment -%}
+<section class="pg-ts">
+  <div class="pg-ts__row">
+    {%- for block in section.blocks -%}
+      <div class="pg-ts__item" {{ block.shopify_attributes }}>
+        <span class="pg-ts__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            {%- case block.settings.icon -%}
+              {%- when 'vet' -%}
+                <path d="M14 8v9a10 10 0 0 0 20 0V8"/><path d="M14 8h-3M34 8h3"/><path d="M24 27v5a8 8 0 0 0 16 0v-2"/><circle cx="40" cy="27" r="3"/><path d="M19 15l3 3 6-6" stroke="#e0a526"/>
+              {%- when 'plant' -%}
+                <path d="M24 42V22"/><path d="M24 26c0-8-6-13-14-13 0 8 6 13 14 13z"/><path d="M24 22c0-7 5-12 13-12 0 7-5 12-13 12z"/><path d="M14 42h20"/><circle cx="37" cy="10" r="2" stroke="#e0a526"/>
+              {%- when 'label' -%}
+                <path d="M17 6h10v6l3 4v24a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2V16l3-4z"/><path d="M14 22h16M14 32h16"/><path d="M18 26h6"/><circle cx="35" cy="33" r="6" stroke="#e0a526"/><path d="M39.5 37.5L44 42" stroke="#e0a526"/>
+              {%- when 'guarantee' -%}
+                <rect x="6" y="10" width="30" height="28" rx="3"/><path d="M6 18h30M13 6v8M29 6v8"/><text x="21" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor" stroke="none" font-family="inherit">90</text><circle cx="37" cy="36" r="6" stroke="#e0a526"/><path d="M34.5 36l2 2 3.5-4" stroke="#e0a526"/>
+              {%- else -%}
+                <circle cx="24" cy="24" r="16"/><path d="M17 24l5 5 9-10"/>
+            {%- endcase -%}
+          </svg>
+        </span>
+        <span class="pg-ts__txt">
+          <strong>{{ block.settings.title }}</strong>
+          <small>{{ block.settings.text }}</small>
+        </span>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+<style>
+.pg-ts{background:#fff;border-bottom:1px solid #e3e8e5}
+.pg-ts__row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.pg-ts__item{display:flex;gap:14px;align-items:flex-start;padding:26px 24px;border-left:1px solid #e3e8e5;color:#1d2b24}
+.pg-ts__item:first-child{border-left:0}
+.pg-ts__icon{flex:0 0 44px;width:44px;height:44px;color:#1f5c3f}
+.pg-ts__icon svg{width:100%;height:100%}
+.pg-ts__txt strong{display:block;font-size:16px;font-weight:700;margin-bottom:3px}
+.pg-ts__txt small{display:block;font-size:14px;line-height:1.45;color:#5d6b64}
+@media (max-width:989px){.pg-ts__row{grid-template-columns:1fr 1fr}.pg-ts__item:nth-child(3){border-left:0}.pg-ts__item:nth-child(n+3){border-top:1px solid #e3e8e5}}
+@media (max-width:480px){.pg-ts__item{padding:18px 14px;gap:10px}.pg-ts__icon{flex-basis:34px;width:34px;height:34px}.pg-ts__txt strong{font-size:14px}.pg-ts__txt small{font-size:12.5px}}
+</style>
+{% schema %}
+{
+  "name": "PawGuard trust strip",
+  "max_blocks": 4,
+  "blocks": [
+    { "type": "item", "name": "Trust item", "settings": [
+      { "type": "select", "id": "icon", "label": "Icon", "default": "vet", "options": [
+        { "value": "vet", "label": "Stethoscope" }, { "value": "plant", "label": "Plant" },
+        { "value": "label", "label": "Label + magnifier" }, { "value": "guarantee", "label": "90-day calendar" } ] },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "text", "id": "text", "label": "Text" } ] }
+  ],
+  "presets": [{ "name": "PawGuard trust strip" }]
+}
+{% endschema %}
