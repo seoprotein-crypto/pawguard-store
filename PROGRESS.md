@@ -101,3 +101,4 @@ No mutations to the store have been made.
 - 2026-11-14 | Owner | re-sent Megan's and Michael's photos (image swap). Mapped by breed in review text: Labrador photo -> Michael, beagle photo -> Megan
 - 2026-11-14 | Shopify MCP | stagedUploadsCreate + PUT + fileCreate review-michael-dog.jpg (MediaImage 64766631248200), review-megan-dog.jpg (64766631280968) | OK
 - 2026-11-14 | theme_bash + theme_commit bd418e9b | working copy 5 192471400776 | index.json reviews r3 (Megan) + r4 (Michael) images | Playwright screenshot: all 4 review cards with photos, equal height
+- 2026-11-14 | theme_bash + theme_commit 8966ffb8 | working copy 5 192471400776 | index.json reviews block_order -> Nicole, Michael, Rachel, Megan (owner request) | OK
