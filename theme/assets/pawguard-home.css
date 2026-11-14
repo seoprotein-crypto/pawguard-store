@@ -101,3 +101,10 @@
   .pgh-qz__media{min-height:420px}
 }
 @media (max-width:560px){.pgh-ingr__list{grid-template-columns:1fr}}
+/* quiz teaser photo framing */
+.pgh-qz__media img{object-position:left center}
+@media (max-width:989px){
+  .pgh-qz__media{min-height:0;display:flex;flex-direction:column;background:var(--mint)}
+  .pgh-qz__media img{position:relative!important;inset:auto!important;height:auto;aspect-ratio:16/10;object-position:78% center}
+  .pgh-qz__card{position:relative;left:auto;top:auto;width:auto;margin:-36px 16px 20px}
+}

@@ -89,3 +89,8 @@ No mutations to the store have been made.
 - 2026-11-13 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 4" gid://shopify/OnlineStoreTheme/192449413448 | OK
 - 2026-11-13 | Local + theme_bash + theme_commit fcfd57d5, a8ddf59d | working copy 4 | new sections pg-home-ingredients/proof/reviews/quiz/faq, assets pawguard-home.css/.js, quiz prefill (?concerns=) in pawguard-quiz.js, index.json order [pg_hero, trust, ingredients, proof, reviews, quiz, faq] (content in theme/templates/index-home-sections.json) | MD5 identical to repo
 - 2026-11-13 | Test (Playwright) | ingredient pop-up + next OK; product CTA "Get the drops · $49.99"; quiz teaser picks -> /pages/gut-check?concerns=scoot,tummy and quiz pre-selects them; bug found+fixed: home JS double-initialised (two script tags) -> guard added; no page errors
+- 2026-11-14 | Owner | published "PawGuard – working copy 4" (192449413448) -> MAIN (home sections live)
+- 2026-11-14 | Check | owner's kitchen photo vs competitor pl-ms-help.jpg: not identical (mean pixel diff ~32) but near-identical composition; owner states AI-generated & unique, chose to use it (lifestyle image, not a review)
+- 2026-11-14 | Shopify MCP | stagedUploadsCreate + PUT + fileCreate pawguard-kitchen-dog-lap.jpg (MediaImage 64765665247560) | OK
+- 2026-11-14 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 5" gid://shopify/OnlineStoreTheme/192471400776 | OK
+- 2026-11-14 | theme_bash + theme_commit 8f4ef10c | working copy 5 | index.json quiz.image -> pawguard-kitchen-dog-lap.jpg | OK
