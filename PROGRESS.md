@@ -95,3 +95,6 @@ No mutations to the store have been made.
 - 2026-11-14 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 5" gid://shopify/OnlineStoreTheme/192471400776 | OK
 - 2026-11-14 | theme_bash + theme_commit 8f4ef10c | working copy 5 | index.json quiz.image -> pawguard-kitchen-dog-lap.jpg | OK
 - 2026-11-14 | theme_bash + theme_commit 0d17dfd4 | working copy 5 | pawguard-home.css: quiz teaser photo framing (desktop object-position left; mobile photo above card) | MD5 identical to repo; Playwright screenshots desktop+mobile OK
+- 2026-11-14 | Owner | sent 4 "original review photos" for Nicole, Michael, Rachel, Megan. Nicole (golden retriever ✓) and Rachel (no breed in review ✓) used. Michael (review: Labrador; photo: 3 chihuahuas) and Megan (review: Beagle; photo: chihuahua) NOT used — photo contradicts review text; asked owner to re-check. Saved as assets/source/*-UNUSED.jpg
+- 2026-11-14 | Shopify MCP | stagedUploadsCreate + PUT + fileCreate review-nicole-dogs.jpg (MediaImage 64765845733704), review-rachel-dog.jpg (64765845766472) | OK
+- 2026-11-14 | theme_bash + theme_commit c760c684, fc0da8a8 | working copy 5 192471400776 | index.json reviews r1/r2 images; pawguard-home.css equal-height review photos | MD5 identical to repo
