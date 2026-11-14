@@ -37,8 +37,8 @@
   .pgf-fine a{text-decoration:underline}
   @media (max-width:989px){
     .pgf{padding-top:48px}
-    .pgf-nl{grid-template-columns:1fr;gap:22px}
-    .pgf-main{grid-template-columns:1fr 1fr;gap:32px 20px}
+    .pgf-nl{grid-template-columns:minmax(0,1fr);gap:22px}
+    .pgf-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 20px}
     .pgf-brand{grid-column:1/-1}
   }
   @media (max-width:420px){.pgf-form{padding-left:16px}.pgf-form button{padding:12px 16px}}

@@ -106,3 +106,6 @@ No mutations to the store have been made.
 - 2026-11-14 | Shopify MCP | menuCreate "Footer – Learn" footer-learn (gid://shopify/Menu/313430835528): Privacy, Refund, Shipping, Subscription policies, Terms, Your Privacy Choices | OK
 - 2026-11-14 | Shopify MCP | menuCreate "Footer – Support" footer-support (gid://shopify/Menu/313431163208): Contact Us, Track Your Order, Manage subscription, Search | OK
 - 2026-11-14 | Local | theme/sections/pg-footer.liquid (new footer: newsletter form via Shopify customer form, logo, 3 menu columns, market pill, payment icons, business line, disclaimer)
+- 2026-11-14 | theme_bash + theme_commit a153f14b | working copy 5 192471400776 | new sections/pg-footer.liquid; footer-group.json: pg_footer first, old Horizon footer + utilities sections set disabled:true (kept for rollback; old social links were placeholder facebook.com etc.) | MD5 identical to repo
+- 2026-11-14 | theme_bash + theme_commit cbbfe38c | working copy 5 | pg-footer mobile grid minmax(0,1fr) fix | MD5 6cd32a38 identical; Playwright: box 20–370px of 390, no horizontal scroll, 0 JS errors, 12 links OK, 9 payment icons
+- 2026-11-14 | Test | newsletter submit from headless browser held by Shopify's invisible hCaptcha bot protection (expected) -> owner to do one real sign-up test

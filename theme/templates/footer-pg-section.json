@@ -1,0 +1,23 @@
+{
+  "type": "pg-footer",
+  "settings": {
+    "nl_heading": "Gut-health tips for your dog, in your inbox",
+    "nl_text": "Practical advice for happier tummies, plus news on new products. Unsubscribe anytime.",
+    "nl_button": "Sign up",
+    "nl_success": "Thanks for signing up! Watch your inbox.",
+    "nl_note": "<p>By signing up you agree to receive marketing emails from Paw-Guard. See our <a href=\"/policies/privacy-policy\">Privacy Policy</a>.</p>",
+    "logo": "shopify://shop_images/pawguard-logo-white.png",
+    "logo_width": 170,
+    "blurb": "Plant-powered daily drops for your dog's gut. Vet-reviewed and made with nothing hidden.",
+    "col1_title": "Shop",
+    "col1_menu": "footer-shop",
+    "col2_title": "Support",
+    "col2_menu": "footer-support",
+    "col3_title": "Learn",
+    "col3_menu": "footer-learn",
+    "domain_label": "paw-guard.com",
+    "show_payment": true,
+    "business_line": "Paw-Guard · Plovdiv 4000, Bulgaria · help@paw-guard.com",
+    "disclaimer": "<p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. It is a dietary supplement for dogs, not a medicine. Talk to your veterinarian before use, especially if your dog is pregnant, nursing, or on medication. Results vary from dog to dog.</p>"
+  }
+}
