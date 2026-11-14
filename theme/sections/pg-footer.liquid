@@ -1,0 +1,156 @@
+{%- comment -%}
+  PawGuard footer: newsletter sign-up (Shopify customer form -> Customers, subscribed to email marketing),
+  logo + blurb, 3 link columns (menus), market pill, copyright, payment icons, business line, disclaimer.
+{%- endcomment -%}
+<style>
+  .pgf{--bg:#173f2d;--ink:#f4efe6;--mut:rgba(244,239,230,.72);--line:rgba(244,239,230,.16);--cream:#f4e9d8;background:var(--bg);color:var(--ink);padding:64px 0 36px;font-size:15px}
+  .pgf *{box-sizing:border-box}
+  .pgf a{color:inherit;text-decoration:none}
+  .pgf-wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .pgf-nl{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:center;padding-bottom:44px;border-bottom:1px solid var(--line)}
+  .pgf-nl h2{font-size:clamp(28px,3.2vw,40px);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin:0 0 10px;color:var(--ink)}
+  .pgf-nl p{margin:0;color:var(--mut)}
+  .pgf-form{display:flex;align-items:center;border:1px solid rgba(244,239,230,.35);border-radius:999px;padding:5px 5px 5px 22px;background:rgba(255,255,255,.06)}
+  .pgf-form input[type=email]{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--ink);font:inherit;font-size:16px;padding:10px 0}
+  .pgf-form input::placeholder{color:var(--mut)}
+  .pgf-form:focus-within{border-color:var(--cream)}
+  .pgf-form button{border:0;border-radius:999px;background:var(--cream);color:var(--bg);font:inherit;font-weight:700;padding:12px 22px;cursor:pointer;white-space:nowrap}
+  .pgf-form button:hover{background:#fff}
+  .pgf-msg{margin:10px 0 0 6px;font-size:14px}
+  .pgf-msg--ok{color:#bfe3c9}.pgf-msg--err{color:#ffc9b8}
+  .pgf-legal-note{margin:10px 0 0 6px;font-size:12px;color:var(--mut)}
+  .pgf-legal-note a{text-decoration:underline}
+  .pgf-main{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px;padding:48px 0;border-bottom:1px solid var(--line)}
+  .pgf-logo img{display:block;height:auto;max-width:100%}
+  .pgf-logo span{font-size:24px;font-weight:800}
+  .pgf-blurb{color:var(--mut);line-height:1.6;margin:18px 0 0;max-width:330px}
+  .pgf-col h3{font-size:15px;font-weight:700;margin:6px 0 18px;color:var(--ink)}
+  .pgf-col ul{list-style:none;margin:0;padding:0;display:grid;gap:13px}
+  .pgf-col a{color:var(--mut)}.pgf-col a:hover{color:var(--ink)}
+  .pgf-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:26px 0}
+  .pgf-bar__l{display:flex;align-items:center;gap:18px;flex-wrap:wrap;color:var(--mut);font-size:14px}
+  .pgf-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(244,239,230,.35);border-radius:999px;padding:8px 16px;font-weight:600;color:var(--ink);font-size:14px}
+  .pgf-pay{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+  .pgf-pay svg{display:block;width:38px;height:24px}
+  .pgf-fine{max-width:900px;margin:0 auto;padding-top:24px;border-top:1px solid var(--line);text-align:center;font-size:12px;line-height:1.6;color:var(--mut)}
+  .pgf-fine strong{display:block;color:var(--ink);font-weight:600;margin-bottom:8px}
+  .pgf-fine a{text-decoration:underline}
+  @media (max-width:989px){
+    .pgf{padding-top:48px}
+    .pgf-nl{grid-template-columns:1fr;gap:22px}
+    .pgf-main{grid-template-columns:1fr 1fr;gap:32px 20px}
+    .pgf-brand{grid-column:1/-1}
+  }
+  @media (max-width:420px){.pgf-form{padding-left:16px}.pgf-form button{padding:12px 16px}}
+</style>
+
+<footer class="pgf" role="contentinfo">
+  <div class="pgf-wrap">
+    <div class="pgf-nl" id="pgf-newsletter">
+      <div>
+        <h2>{{ section.settings.nl_heading }}</h2>
+        {%- if section.settings.nl_text != blank -%}<p>{{ section.settings.nl_text }}</p>{%- endif -%}
+      </div>
+      <div>
+        {%- form 'customer', id: 'pgf-newsletter-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter,footer-signup">
+          {%- if form.posted_successfully? -%}
+            <p class="pgf-msg pgf-msg--ok" role="status">{{ section.settings.nl_success }}</p>
+          {%- else -%}
+            <div class="pgf-form">
+              <label for="pgf-email" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+              <input id="pgf-email" type="email" name="contact[email]" placeholder="Your email" autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false" required {% if form.errors %}aria-invalid="true" aria-describedby="pgf-err"{% endif %}>
+              <button type="submit">{{ section.settings.nl_button }}</button>
+            </div>
+            {%- if form.errors -%}
+              <p class="pgf-msg pgf-msg--err" id="pgf-err" role="alert">
+                {{ form.errors | default_errors | strip_html | strip }}
+              </p>
+            {%- endif -%}
+            {%- if section.settings.nl_note != blank -%}<div class="pgf-legal-note">{{ section.settings.nl_note }}</div>{%- endif -%}
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+
+    <div class="pgf-main">
+      <div class="pgf-brand">
+        <a href="{{ routes.root_url }}" class="pgf-logo" aria-label="{{ shop.name }} home">
+          {%- if section.settings.logo != blank -%}
+            {{ section.settings.logo | image_url: width: 400 | image_tag: width: section.settings.logo_width, alt: shop.name, loading: 'lazy' }}
+          {%- else -%}
+            <span>{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+        {%- if section.settings.blurb != blank -%}<p class="pgf-blurb">{{ section.settings.blurb }}</p>{%- endif -%}
+      </div>
+      {%- for i in (1..3) -%}
+        {%- liquid
+          assign t_key = 'col' | append: i | append: '_title'
+          assign m_key = 'col' | append: i | append: '_menu'
+          assign col_title = section.settings[t_key]
+          assign col_menu = section.settings[m_key]
+        -%}
+        {%- if col_menu != blank and col_menu.links.size > 0 -%}
+          <nav class="pgf-col" aria-label="{{ col_title | escape }}">
+            <h3>{{ col_title }}</h3>
+            <ul>
+              {%- for link in col_menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="pgf-bar">
+      <div class="pgf-bar__l">
+        <span class="pgf-pill">{{ localization.country.name }} · {{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }}</span>
+        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}{% if section.settings.domain_label != blank %} · {{ section.settings.domain_label }}{% endif %}</span>
+      </div>
+      {%- if section.settings.show_payment and shop.enabled_payment_types.size > 0 -%}
+        <ul class="pgf-pay" aria-label="Payment methods">
+          {%- for type in shop.enabled_payment_types -%}<li>{{ type | payment_type_svg_tag }}</li>{%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <div class="pgf-fine">
+      {%- if section.settings.business_line != blank -%}<strong>{{ section.settings.business_line }}</strong>{%- endif -%}
+      {{ section.settings.disclaimer }}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "PawGuard footer",
+  "class": "pg-footer-section",
+  "settings": [
+    { "type": "header", "content": "Newsletter" },
+    { "type": "text", "id": "nl_heading", "label": "Heading", "default": "Gut-health tips for your dog, in your inbox" },
+    { "type": "text", "id": "nl_text", "label": "Text", "default": "Practical advice for happier tummies, plus news on new products. Unsubscribe anytime." },
+    { "type": "text", "id": "nl_button", "label": "Button", "default": "Sign up" },
+    { "type": "text", "id": "nl_success", "label": "Success message", "default": "Thanks for signing up! Watch your inbox." },
+    { "type": "richtext", "id": "nl_note", "label": "Small print under the form" },
+    { "type": "header", "content": "Brand" },
+    { "type": "image_picker", "id": "logo", "label": "Logo (light version)" },
+    { "type": "range", "id": "logo_width", "label": "Logo width", "min": 80, "max": 260, "step": 10, "unit": "px", "default": 170 },
+    { "type": "textarea", "id": "blurb", "label": "Short description" },
+    { "type": "header", "content": "Link columns" },
+    { "type": "text", "id": "col1_title", "label": "Column 1 title", "default": "Shop" },
+    { "type": "link_list", "id": "col1_menu", "label": "Column 1 menu" },
+    { "type": "text", "id": "col2_title", "label": "Column 2 title", "default": "Support" },
+    { "type": "link_list", "id": "col2_menu", "label": "Column 2 menu" },
+    { "type": "text", "id": "col3_title", "label": "Column 3 title", "default": "Learn" },
+    { "type": "link_list", "id": "col3_menu", "label": "Column 3 menu" },
+    { "type": "header", "content": "Bottom" },
+    { "type": "text", "id": "domain_label", "label": "Domain text", "default": "paw-guard.com" },
+    { "type": "checkbox", "id": "show_payment", "label": "Show payment icons", "default": true },
+    { "type": "text", "id": "business_line", "label": "Business name, address, email" },
+    { "type": "richtext", "id": "disclaimer", "label": "Disclaimer" }
+  ],
+  "presets": [{ "name": "PawGuard footer" }]
+}
+{% endschema %}
