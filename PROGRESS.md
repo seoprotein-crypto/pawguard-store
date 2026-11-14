@@ -94,3 +94,4 @@ No mutations to the store have been made.
 - 2026-11-14 | Shopify MCP | stagedUploadsCreate + PUT + fileCreate pawguard-kitchen-dog-lap.jpg (MediaImage 64765665247560) | OK
 - 2026-11-14 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 5" gid://shopify/OnlineStoreTheme/192471400776 | OK
 - 2026-11-14 | theme_bash + theme_commit 8f4ef10c | working copy 5 | index.json quiz.image -> pawguard-kitchen-dog-lap.jpg | OK
+- 2026-11-14 | theme_bash + theme_commit 0d17dfd4 | working copy 5 | pawguard-home.css: quiz teaser photo framing (desktop object-position left; mobile photo above card) | MD5 identical to repo; Playwright screenshots desktop+mobile OK
