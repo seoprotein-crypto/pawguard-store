@@ -100,3 +100,4 @@ No mutations to the store have been made.
 - 2026-11-14 | theme_bash + theme_commit c760c684, fc0da8a8 | working copy 5 192471400776 | index.json reviews r1/r2 images; pawguard-home.css equal-height review photos | MD5 identical to repo
 - 2026-11-14 | Owner | re-sent Megan's and Michael's photos (image swap). Mapped by breed in review text: Labrador photo -> Michael, beagle photo -> Megan
 - 2026-11-14 | Shopify MCP | stagedUploadsCreate + PUT + fileCreate review-michael-dog.jpg (MediaImage 64766631248200), review-megan-dog.jpg (64766631280968) | OK
+- 2026-11-14 | theme_bash + theme_commit bd418e9b | working copy 5 192471400776 | index.json reviews r3 (Megan) + r4 (Michael) images | Playwright screenshot: all 4 review cards with photos, equal height
