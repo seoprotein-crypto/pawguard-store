@@ -98,3 +98,5 @@ No mutations to the store have been made.
 - 2026-11-14 | Owner | sent 4 "original review photos" for Nicole, Michael, Rachel, Megan. Nicole (golden retriever ✓) and Rachel (no breed in review ✓) used. Michael (review: Labrador; photo: 3 chihuahuas) and Megan (review: Beagle; photo: chihuahua) NOT used — photo contradicts review text; asked owner to re-check. Saved as assets/source/*-UNUSED.jpg
 - 2026-11-14 | Shopify MCP | stagedUploadsCreate + PUT + fileCreate review-nicole-dogs.jpg (MediaImage 64765845733704), review-rachel-dog.jpg (64765845766472) | OK
 - 2026-11-14 | theme_bash + theme_commit c760c684, fc0da8a8 | working copy 5 192471400776 | index.json reviews r1/r2 images; pawguard-home.css equal-height review photos | MD5 identical to repo
+- 2026-11-14 | Owner | re-sent Megan's and Michael's photos (image swap). Mapped by breed in review text: Labrador photo -> Michael, beagle photo -> Megan
+- 2026-11-14 | Shopify MCP | stagedUploadsCreate + PUT + fileCreate review-michael-dog.jpg (MediaImage 64766631248200), review-megan-dog.jpg (64766631280968) | OK
