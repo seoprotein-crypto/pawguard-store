@@ -109,3 +109,9 @@ No mutations to the store have been made.
 - 2026-11-14 | theme_bash + theme_commit a153f14b | working copy 5 192471400776 | new sections/pg-footer.liquid; footer-group.json: pg_footer first, old Horizon footer + utilities sections set disabled:true (kept for rollback; old social links were placeholder facebook.com etc.) | MD5 identical to repo
 - 2026-11-14 | theme_bash + theme_commit cbbfe38c | working copy 5 | pg-footer mobile grid minmax(0,1fr) fix | MD5 6cd32a38 identical; Playwright: box 20–370px of 390, no horizontal scroll, 0 JS errors, 12 links OK, 9 payment icons
 - 2026-11-14 | Test | newsletter submit from headless browser held by Shopify's invisible hCaptcha bot protection (expected) -> owner to do one real sign-up test
+- 2026-11-15 | Owner | legal entity is an EOOD; keep it OUT of the footer (business line stays "Paw-Guard · Plovdiv 4000, Bulgaria · help@paw-guard.com"); asked for FAQ + About pages from existing info
+- 2026-11-15 | Local | content/page-faq.html, content/page-about.html (built only from approved copy: product + home FAQ, vet section, trust strip, stats)
+- 2026-11-15 | Shopify MCP | pageCreate "FAQ" /pages/faq (gid://shopify/Page/158752047432), published, SEO title/description | OK
+- 2026-11-15 | Shopify MCP | pageCreate "About Us" /pages/about (gid://shopify/Page/158752080200), published, SEO title/description | OK
+- 2026-11-15 | Shopify MCP | menuUpdate footer-support (+FAQ after Contact Us), footer-learn (+About at end) | OK
+- 2026-11-15 | Test (Playwright, working copy 5) | /pages/faq + /pages/about: 200, correct SEO titles, no JS errors, no horizontal scroll; footer shows 14 links incl. FAQ + About
