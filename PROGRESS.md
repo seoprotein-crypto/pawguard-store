@@ -115,3 +115,11 @@ No mutations to the store have been made.
 - 2026-11-15 | Shopify MCP | pageCreate "About Us" /pages/about (gid://shopify/Page/158752080200), published, SEO title/description | OK
 - 2026-11-15 | Shopify MCP | menuUpdate footer-support (+FAQ after Contact Us), footer-learn (+About at end) | OK
 - 2026-11-15 | Test (Playwright, working copy 5) | /pages/faq + /pages/about: 200, correct SEO titles, no JS errors, no horizontal scroll; footer shows 14 links incl. FAQ + About
+- 2026-11-15 | Owner | keep "a real person will reply"; guarantee wording = "If your dog doesn't show meaningful improvement…" everywhere; 2-bottle bundle pre-selected; Add to cart -> straight to checkout; wants checkout trust content + asked about Shop Pay
+- 2026-11-15 | Owner | published "PawGuard – working copy 5" (192471400776) -> MAIN (footer live)
+- 2026-11-15 | Shopify MCP | pageUpdate FAQ (158752047432) + About (158752080200): guarantee wording | OK
+- 2026-11-15 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 6" gid://shopify/OnlineStoreTheme/192537559368 | OK (an earlier duplicate "PawGuard – 2 bottles default" 192504430920 had an empty sandbox; unused)
+- 2026-11-15 | theme_bash + theme_commit 64d39512 | working copy 6 | pg-product-hero: pre-select bundle setting (default 2), return_to=/checkout setting; index.json home FAQ guarantee answer | MD5 identical to repo
+- 2026-11-15 | theme_bash + theme_commit f11bce89 | working copy 6 | pg-product-hero: trust row under button (3 icons) + line-item property "Guarantee: 90-day money-back" (shows under item in checkout); pawguard.css trust row styles | MD5 identical to repo
+- 2026-11-15 | Test (Playwright, working copy 6) | 2 Bottles pre-selected ($89.99); Add to cart -> /checkouts/… (checkout loads, US buyer can buy now); checkout summary shows "Guarantee: 90-day money-back"; no JS errors, no horizontal scroll desktop/mobile
+- 2026-11-15 | Check | Shopify docs: checkout UI extensions on information/shipping/payment steps are Shopify Plus only -> no badges/reviews blocks in checkout on Basic. Shop Pay already active (express button in checkout)

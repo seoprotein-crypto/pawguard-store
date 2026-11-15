@@ -4,7 +4,17 @@
   Self-contained (does not depend on Horizon internals).
 {%- endcomment -%}
 {%- liquid
-  assign current_variant = product.selected_or_first_available_variant
+  comment
+    Pre-select the bundle chosen in the section settings (default: 2nd = 2 bottles) unless the URL asks for a variant.
+  endcomment
+  assign current_variant = product.selected_variant
+  if current_variant == blank
+    assign default_idx = section.settings.default_bundle | minus: 1
+    assign current_variant = product.variants[default_idx]
+    if current_variant == blank or current_variant.available == false
+      assign current_variant = product.selected_or_first_available_variant
+    endif
+  endif
   assign has_plans = false
   if product.selling_plan_groups.size > 0
     assign has_plans = true
@@ -75,6 +85,8 @@
       {%- assign form_id = 'pg-form-' | append: section.id -%}
       {%- form 'product', product, class: 'pg-form', id: form_id, novalidate: 'novalidate' -%}
         <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-input>
+        {%- if section.settings.checkout_note != blank -%}<input type="hidden" name="properties[Guarantee]" value="{{ section.settings.checkout_note | escape }}">{%- endif -%}
+        {%- if section.settings.go_to_checkout -%}<input type="hidden" name="return_to" value="/checkout">{%- endif -%}
         <input type="hidden" name="selling_plan" value="" data-plan-input disabled>
 
         <h2 class="pg-h3">Choose your bundle:</h2>
@@ -150,6 +162,13 @@
           {%- if current_variant.available -%}<span data-atc-label>Add to cart — <span data-atc-price>{{ current_variant.price | money }}</span></span>{%- else -%}<span>Sold out</span>{%- endif -%}
         </button>
         <p class="pg-guarantee">✓ {{ section.settings.guarantee_line }}</p>
+        {%- if section.settings.show_trust_row -%}
+          <ul class="pg-trustrow" aria-label="Why buy from us">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 8.4-7 10-4-1.6-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>{{ section.settings.trust_1 }}</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span>{{ section.settings.trust_2 }}</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><span>{{ section.settings.trust_3 }}</span></li>
+          </ul>
+        {%- endif -%}
       {%- endform -%}
 
       {%- if section.blocks.size > 0 -%}
@@ -187,6 +206,8 @@
     { "type": "text", "id": "proof_line", "label": "Trophy line", "default": "Trusted by 35,000+ dog owners" },
     { "type": "richtext", "id": "tab_benefits", "label": "Benefits tab" },
     { "type": "richtext", "id": "tab_dosing", "label": "Dosing tab" },
+    { "type": "range", "id": "default_bundle", "label": "Pre-selected bundle", "min": 1, "max": 3, "step": 1, "default": 2 },
+    { "type": "checkbox", "id": "go_to_checkout", "label": "Add to cart goes straight to checkout", "default": true },
     { "type": "text", "id": "tag_1", "label": "Bundle 1 tag" },
     { "type": "text", "id": "tag_2", "label": "Bundle 2 tag", "default": "Most Popular" },
     { "type": "text", "id": "tag_3", "label": "Bundle 3 tag", "default": "Best Value" },
@@ -196,7 +217,12 @@
     { "type": "text", "id": "sub_title", "label": "Subscription title", "default": "Subscribe & save an extra 20%" },
     { "type": "text", "id": "sub_note", "label": "Subscription note", "default": "Ships automatically · Cancel or adjust anytime" },
     { "type": "text", "id": "stock_text", "label": "Stock line", "default": "In stock, ready to ship by" },
-    { "type": "text", "id": "guarantee_line", "label": "Guarantee line", "default": "90-day money-back guarantee · Free US shipping over $54" }
+    { "type": "text", "id": "guarantee_line", "label": "Guarantee line", "default": "90-day money-back guarantee · Free US shipping over $54" },
+    { "type": "checkbox", "id": "show_trust_row", "label": "Show trust row under the button", "default": true },
+    { "type": "text", "id": "trust_1", "label": "Trust item 1", "default": "90-day money-back guarantee" },
+    { "type": "text", "id": "trust_2", "label": "Trust item 2", "default": "Secure, encrypted checkout" },
+    { "type": "text", "id": "trust_3", "label": "Trust item 3", "default": "Ships next day · 4–7 day US delivery" },
+    { "type": "text", "id": "checkout_note", "label": "Note shown under the product in checkout (Guarantee:)", "default": "90-day money-back", "info": "Shown as 'Guarantee: …' under the item in checkout, order emails and the order. Leave empty to hide." }
   ],
   "blocks": [
     {
