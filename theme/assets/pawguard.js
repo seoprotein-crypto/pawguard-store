@@ -99,6 +99,16 @@
       t.addEventListener('click', function () { showMedia(t.getAttribute('data-thumb')); });
     });
 
+    hero.querySelectorAll('[data-pg-subscribe]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var sub = form.querySelector('input[name^="pg-ptype"][value="sub"]');
+        if (!sub) return;
+        sub.checked = true;
+        update();
+        var opt = sub.closest('.pg-purchase__opt');
+        if (opt && opt.scrollIntoView) opt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
     hero.querySelectorAll('[data-ship-date]').forEach(function (el) { el.textContent = tomorrowLabel(); });
     update();
   }

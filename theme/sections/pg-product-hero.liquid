@@ -162,6 +162,13 @@
           {%- if current_variant.available -%}<span data-atc-label>Add to cart — <span data-atc-price>{{ current_variant.price | money }}</span></span>{%- else -%}<span>Sold out</span>{%- endif -%}
         </button>
         <p class="pg-guarantee">✓ {{ section.settings.guarantee_line }}</p>
+        {%- if section.settings.show_notice -%}
+          <div class="pg-notice" role="note">
+            <p class="pg-notice__title"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>{{ section.settings.notice_title }}</p>
+            <p class="pg-notice__text">{{ section.settings.notice_text }}{% if has_plans and section.settings.notice_link != blank %} <button type="button" class="pg-notice__link" data-pg-subscribe>{{ section.settings.notice_link }}</button>{% endif %}</p>
+            {%- if section.settings.notice_exclusive != blank -%}<p class="pg-notice__ps">{{ section.settings.notice_exclusive }}</p>{%- endif -%}
+          </div>
+        {%- endif -%}
         {%- if section.settings.show_trust_row -%}
           <ul class="pg-trustrow" aria-label="Why buy from us">
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 8.4-7 10-4-1.6-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>{{ section.settings.trust_1 }}</span></li>
@@ -218,6 +225,11 @@
     { "type": "text", "id": "sub_note", "label": "Subscription note", "default": "Ships automatically · Cancel or adjust anytime" },
     { "type": "text", "id": "stock_text", "label": "Stock line", "default": "In stock, ready to ship by" },
     { "type": "text", "id": "guarantee_line", "label": "Guarantee line", "default": "90-day money-back guarantee · Free US shipping over $54" },
+    { "type": "checkbox", "id": "show_notice", "label": "Show sell-out notice under the button", "default": true },
+    { "type": "text", "id": "notice_title", "label": "Notice title", "default": "Heads up: PawGuard sells out" },
+    { "type": "text", "id": "notice_text", "label": "Notice text", "default": "We sold out 4 times last year." },
+    { "type": "text", "id": "notice_link", "label": "Notice link (selects the subscription)", "default": "Subscribe & save 20% so you never run out." },
+    { "type": "text", "id": "notice_exclusive", "label": "Notice small print", "info": "Only use if true, e.g. 'PawGuard is only sold on paw-guard.com.'" },
     { "type": "checkbox", "id": "show_trust_row", "label": "Show trust row under the button", "default": true },
     { "type": "text", "id": "trust_1", "label": "Trust item 1", "default": "90-day money-back guarantee" },
     { "type": "text", "id": "trust_2", "label": "Trust item 2", "default": "Secure, encrypted checkout" },

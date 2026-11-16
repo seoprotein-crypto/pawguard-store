@@ -57,7 +57,8 @@
         "sub_title": "Subscribe & save an extra 20%",
         "sub_note": "Ships automatically · Cancel or adjust anytime",
         "stock_text": "In stock, ready to ship by",
-        "guarantee_line": "90-day money-back guarantee · Free US shipping over $54"
+        "guarantee_line": "90-day money-back guarantee · Free US shipping over $54",
+        "notice_exclusive": "PS: PawGuard is only sold here at paw-guard.com. Don't buy fakes on Amazon."
       }
     },
     "deeper": {
@@ -257,7 +258,8 @@
             "rating": 5,
             "date": "08/11/2026",
             "text": "I'm pretty particular about what I give my Golden Retriever, so I always take time to research ingredients and ask our veterinarian questions. I do appreciate the convenience of a liquid product that fits into an established feeding routine.",
-            "verified": true
+            "verified": true,
+            "image": "shopify://shop_images/review-nicole-dogs.jpg"
           }
         },
         "rv2": {
@@ -277,7 +279,8 @@
             "rating": 5,
             "date": "08/07/2026",
             "text": "I like that the bottle doesn't take up much room in our pet supplies cabinet. The dropper makes it convenient to dispense the liquid, and the packaging is compact enough to bring along when traveling.",
-            "verified": true
+            "verified": true,
+            "image": "shopify://shop_images/review-rachel-dog.jpg"
           }
         },
         "rv4": {
@@ -287,7 +290,8 @@
             "rating": 5,
             "date": "07/19/2026",
             "text": "My Beagle has a talent for finding anything unusual in his food, so I wasn't sure how he'd react. Surprisingly, he finished his meal without any fuss. That was a pleasant surprise for me.",
-            "verified": true
+            "verified": true,
+            "image": "shopify://shop_images/review-megan-dog.jpg"
           }
         },
         "rv5": {
@@ -297,7 +301,8 @@
             "rating": 5,
             "date": "07/17/2026",
             "text": "Between work, the kids, and taking care of our Labrador, mornings can get pretty hectic. I appreciate products that don't require a lot of extra steps. Adding drops to his food takes very little time.",
-            "verified": true
+            "verified": true,
+            "image": "shopify://shop_images/review-michael-dog.jpg"
           }
         },
         "rv6": {

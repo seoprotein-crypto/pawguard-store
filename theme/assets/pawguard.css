@@ -165,9 +165,17 @@
 .pg-rv-name{font-weight:700;color:var(--pg-green-dark);margin:8px 0 6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .pg-rv-verified{font-weight:600;font-size:12px;color:var(--pg-green);background:var(--pg-green-soft);padding:2px 8px;border-radius:999px}
 .pg-rv-text{margin:0;font-size:15px}
-.pg-rv-img{width:96px;height:96px;object-fit:cover;border-radius:10px;margin-top:12px;display:block}
+.pg-rv-img{width:150px;height:150px;object-fit:cover;border-radius:10px;margin-top:12px;display:block}
 @media (max-width: 989px){.pg-rv-summary{grid-template-columns:1fr;gap:18px;text-align:center}.pg-rv-bars{margin:0 auto;width:100%}}
 /* trust row under add to cart */
 .pg-trustrow{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:1px solid var(--pg-line,#e3e8e5);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .pg-trustrow li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;font-size:12.5px;line-height:1.3;color:var(--pg-ink,#1d2b24);font-weight:600}
 .pg-trustrow svg{width:26px;height:26px;fill:none;stroke:#1f5c3f;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+/* sell-out notice */
+.pg-notice{margin:16px 0 0;padding:14px 16px;border:1.5px dashed #1f5c3f;border-radius:12px;background:#eef5f0}
+.pg-notice p{margin:0}
+.pg-notice__title{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16px;color:#173f2d}
+.pg-notice__title svg{flex:0 0 20px;width:20px;height:20px;fill:none;stroke:#1f5c3f;stroke-width:2;stroke-linecap:round}
+.pg-notice__text{margin-top:6px!important;font-size:14px;line-height:1.5;color:#1d2b24}
+.pg-notice__link{background:none;border:0;padding:0;font:inherit;font-weight:700;color:#1f5c3f;text-decoration:underline;cursor:pointer;text-align:left}
+.pg-notice__ps{margin-top:6px!important;font-size:13px;font-weight:600;color:#5d6b64}
