@@ -72,7 +72,8 @@
             "fine": "*Based on owner feedback. Individual results vary.",
             "bg": "paper2",
             "btn": "Continue",
-            "show_skip": false
+            "show_skip": false,
+            "image_hint": "your photo"
           }
         },
         "vet": {
@@ -113,13 +114,19 @@
             "r4_text": "I like that the bottle doesn't take up much room in our pet supplies cabinet. The dropper makes it convenient to dispense the liquid, and the packaging is compact enough to bring along when traveling.",
             "r4_image": "shopify://shop_images/review-rachel-dog.jpg",
             "rating": "Trusted by 35,000+ dog parents",
-            "photo1": "shopify://shop_images/pawguard-kitchen-dog-lap.jpg",
-            "photo2": "shopify://shop_images/pawguard-drops-added-to-dog-food.jpg",
-            "photo3": "shopify://shop_images/pawguard-trusted-by-dog-parents.jpg",
-            "photo4": "shopify://shop_images/pawguard-parasite-cleanse-drops-main.jpg",
+            "photo1": "shopify://shop_images/review-nicole-dogs.jpg",
+            "photo2": "shopify://shop_images/review-megan-dog.jpg",
+            "photo3": "shopify://shop_images/review-rachel-dog.jpg",
+            "photo4": "shopify://shop_images/review-michael-dog.jpg",
             "bg": "paper2",
             "btn": "Continue",
-            "side_heading": "Rated 4.5 · 1,281 reviews"
+            "side_heading": "Rated 4.5 · 1,281 reviews",
+            "photo5": "shopify://shop_images/pawguard-kitchen-dog-lap.jpg",
+            "photo6": "shopify://shop_images/pawguard-trusted-by-dog-parents.jpg",
+            "photo7": "shopify://shop_images/pawguard-ingredients-still-life.jpg",
+            "photo8": "shopify://shop_images/pawguard-drops-added-to-dog-food.jpg",
+            "photo9": "shopify://shop_images/pawguard-parasite-cleanse-drops-main.jpg",
+            "card_photos": false
           }
         },
         "q1": {
