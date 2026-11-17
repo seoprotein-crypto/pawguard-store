@@ -136,3 +136,5 @@ No mutations to the store have been made.
 - 2026-11-17 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 8" gid://shopify/OnlineStoreTheme/192703430984 | OK
 - 2026-11-17 | Shopify MCP | pageCreate "The Hidden Parasite Problem…" handle adv-5, templateSuffix adv, published (gid://shopify/Page/158866964808) | OK
 - 2026-11-17 | Shopify MCP | urlRedirectCreate /adv-5 -> /pages/adv-5 (gid://shopify/UrlRedirect/1056665993544) | OK
+- 2026-11-17 | theme_bash + theme_commit aca766fd | working copy 8 192703430984 | layout/pg-advertorial.liquid, sections/pg-advertorial.liquid, templates/page.adv.json | MD5 identical to repo
+- 2026-11-17 | Test (Playwright, working copy 8) | /pages/adv-5: 200, noindex, 0 JS errors, no overflow desktop/mobile, 4 review photos, all buttons -> /products/parasite-cleanse-drops, price "From $49.99 $69.99"; paw-guard.com/adv-5 redirects to /pages/adv-5 (200)

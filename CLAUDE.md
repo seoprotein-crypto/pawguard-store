@@ -4,10 +4,10 @@
 - Store: mwnyhj-kk.myshopify.com ("My Store"), owner login seoprotein@gmail.com
 - Plan: Basic · Currency: USD (store default) · Timezone: EET · Business country: Bulgaria · Selling market: United States
 - Target custom domain: paw-guard.com (registered at Namecheap)
-- Live theme (owner published 2026-11-16): "PawGuard – working copy 6" (gid://shopify/OnlineStoreTheme/192537559368), role MAIN — 2-bottle default, Add to cart -> checkout, trust row, checkout guarantee note.
-- Working copy for edits: "PawGuard – working copy 7" (gid://shopify/OnlineStoreTheme/192596836680) — sell-out notice + product-page review photos.
+- Live theme (owner published 2026-11-17): "PawGuard – working copy 7" (gid://shopify/OnlineStoreTheme/192596836680), role MAIN — sell-out notice, product review photos.
+- Working copy for edits: "PawGuard – working copy 8" (gid://shopify/OnlineStoreTheme/192703430984) — advertorial template (page.adv + layout pg-advertorial) for /pages/adv-5.
 - "PawGuard – 2 bottles default" (192504430920): extra duplicate, not used (safe to delete if owner wants).
-- Older backups: "PawGuard – working copy 5" (192471400776), "Horizon – PawGuard DRAFT" (192425886024), "Horizon" (192234422600).
+- Older backups: "PawGuard – working copy 6" (192537559368), "PawGuard – working copy 5" (192471400776), "Horizon – PawGuard DRAFT" (192425886024), "Horizon" (192234422600).
 
 ## Always-do rules (updated 2026-11-13 by owner: "work on the live store from now on, don't ask for approval")
 1. **No approval needed.** Make store changes directly and live (products ACTIVE + published, discounts active, pages published). Briefly say what you're doing as you go.
