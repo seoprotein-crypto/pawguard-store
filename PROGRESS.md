@@ -144,3 +144,5 @@ No mutations to the store have been made.
 - 2026-11-17 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 9" gid://shopify/OnlineStoreTheme/192705724744 | OK
 - 2026-11-17 | Shopify MCP | pageCreate quiz-reactivity (gid://shopify/Page/158869946696, template quiz-reactivity) + quiz-signs (gid://shopify/Page/158869979464, template quiz-signs), published | OK
 - 2026-11-17 | Shopify MCP | urlRedirectCreate /quiz-reactivity -> /pages/quiz-reactivity (1056674939208), /quiz-signs -> /pages/quiz-signs (1056674971976) | OK
+- 2026-11-17 | theme_bash + theme_commit a1b441a6 | working copy 9 192705724744 | sections/pg-quiz-lp.liquid + templates/page.quiz-reactivity.json + page.quiz-signs.json | section MD5 identical; templates identical (jq canonical md5)
+- 2026-11-17 | Test (Playwright, working copy 9) | both pages 200, 0 JS errors, no overflow desktop/mobile; Continue -> next panel; Skip -> weight question; weight answer -> last question; last answer -> /products/parasite-cleanse-drops; mobile sticky bar follows panel labels; /quiz-reactivity and /quiz-signs redirect OK
