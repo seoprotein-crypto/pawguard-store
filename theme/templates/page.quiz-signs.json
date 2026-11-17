@@ -1,0 +1,162 @@
+{
+  "layout": "pg-advertorial",
+  "sections": {
+    "main": {
+      "type": "pg-quiz-lp",
+      "settings": {
+        "logo": "shopify://shop_images/pawguard-logo-green.png",
+        "product": "parasite-cleanse-drops",
+        "disclaimer": "<p>This is an advertorial for informational purposes only. Information provided by PawGuard does not constitute veterinary advice and should not be used as a replacement for advice from your veterinarian. Please consult your veterinarian regarding any change in treatment or supplementation. Testimonials are from verified PawGuard customers based on their own experiences. The reviewing veterinarian was compensated for her time. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>"
+      },
+      "blocks": {
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "image": "shopify://shop_images/pawguard-hero-desktop.jpg",
+            "image_mobile": "shopify://shop_images/pawguard-hero-mobile.jpg",
+            "eyebrow": "Free 60-second dog check",
+            "heading": "Does Your Dog Scoot, Lick Their Paws Or Pace At 3AM?",
+            "heading_hl": "It Could Start In The Gut",
+            "heading_end": " — And There's A Gentle, Natural Way To Support It.",
+            "text": "<p>Many owners discover that the scooting, paw licking and restless nights they blamed on “behaviour” are linked to the gut. Take the free 60-second check to see your dog's recommended daily routine.</p>",
+            "guarantee": "90-day money-back guarantee — even if the bottle is empty.",
+            "rating": "Rated 4.5/5 · trusted by 35,000+ dog owners",
+            "btn": "Find out more",
+            "show_skip": true
+          }
+        },
+        "p1": {
+          "type": "panel",
+          "settings": {
+            "heading": "Why gut health matters for scooting, itching & restlessness",
+            "text": "<p>Intestinal parasites are more common than most owners think — a 2020 study found them at <strong>85% of U.S. dog parks tested</strong>. Once they settle in, they can upset digestion and the balance of healthy gut bacteria.</p><p>The gut lining — the barrier between your dog's digestion and the rest of his body — is just one cell thick. When the gut isn't comfortable, it often shows up as scooting, paw licking, loose stools and 3AM pacing that look like “behaviour”.</p>",
+            "image": "shopify://shop_images/dog-gut-health-illustration.jpg",
+            "bg": "paper",
+            "btn": "What are the signs?",
+            "show_skip": false
+          }
+        },
+        "p2": {
+          "type": "checklist",
+          "settings": {
+            "heading": "What are the warning signs?",
+            "intro": "Here are the signals owners most often miss. Any two together are worth a closer look — and worth mentioning to your vet:",
+            "items": "Scooting across the carpet\nLicking paws\nIndoor accidents after being house-trained\nPacing or restlessness at 2–3AM\nEdginess on walks\nDisrupted, restless sleep\nDull coat or itchy skin\nSudden picky eating or loose stools",
+            "first_tag": "",
+            "outro": "",
+            "image_hint": "a dog scooting or licking its paw",
+            "image_left": true,
+            "bg": "paper2",
+            "btn": "What's the solution?",
+            "show_skip": true
+          }
+        },
+        "p3": {
+          "type": "panel",
+          "settings": {
+            "heading": "Get to the root of it — with a complete natural cleanse",
+            "text": "<p><strong>PawGuard Parasite Cleanse Drops</strong> combine 11 plant-powered actives — including black walnut hull, wormwood, clove and pumpkin seed — with a four-strain probiotic blend, in one by-weight dose a day, straight onto food.</p><p>The formula supports the body in addressing parasites at every life stage and helps restore healthy gut flora — for less scooting, licking and restlessness, and a more comfortable dog.</p>",
+            "image": "shopify://shop_images/pawguard-drops-added-to-dog-food.jpg",
+            "bg": "paper",
+            "btn": "Continue reading",
+            "show_skip": false
+          }
+        },
+        "p4": {
+          "type": "compare",
+          "settings": {
+            "heading": "Many owners notice the first changes",
+            "heading_2": "within the first couple of weeks*",
+            "text": "<p>Firmer stools, less scooting and calmer nights usually come first. Paw licking often eases after that. The full 90-day routine gives the most noticeable results.</p>",
+            "points": "One by-weight dose a day, straight onto the food\nSupports a comfortable gut: less scooting, licking and restlessness\nTailored to your dog's size",
+            "fine": "*Based on owner feedback. Individual results vary.",
+            "bg": "paper2",
+            "btn": "Continue",
+            "show_skip": false
+          }
+        },
+        "vet": {
+          "type": "vet",
+          "settings": {
+            "heading": "Vet-reviewed",
+            "vet1_quote": "",
+            "vet1_name": "",
+            "vet1_title": "",
+            "vet2_quote": "",
+            "vet2_name": "",
+            "vet2_title": "",
+            "disclosure": "Compensated for her time.",
+            "bg": "paper",
+            "btn": "Continue reading",
+            "show_skip": false
+          }
+        },
+        "rv": {
+          "type": "reviews",
+          "settings": {
+            "heading": "What PawGuard owners say",
+            "verified": true,
+            "r1_name": "Nicole",
+            "r1_title": "",
+            "r1_text": "I'm pretty particular about what I give my Golden Retriever, so I always take time to research ingredients and ask our veterinarian questions. I do appreciate the convenience of a liquid product that fits into an established feeding routine.",
+            "r1_image": "shopify://shop_images/review-nicole-dogs.jpg",
+            "r2_name": "Michael",
+            "r2_title": "",
+            "r2_text": "Between work, the kids, and taking care of our Labrador, mornings can get pretty hectic. I appreciate products that don't require a lot of extra steps. Adding drops to his food takes very little time.",
+            "r2_image": "shopify://shop_images/review-michael-dog.jpg",
+            "r3_name": "Megan",
+            "r3_title": "",
+            "r3_text": "My Beagle has a talent for finding anything unusual in his food, so I wasn't sure how he'd react. Surprisingly, he finished his meal without any fuss. That was a pleasant surprise for me.",
+            "r3_image": "shopify://shop_images/review-megan-dog.jpg",
+            "r4_name": "Rachel",
+            "r4_title": "",
+            "r4_text": "I like that the bottle doesn't take up much room in our pet supplies cabinet. The dropper makes it convenient to dispense the liquid, and the packaging is compact enough to bring along when traveling.",
+            "r4_image": "shopify://shop_images/review-rachel-dog.jpg",
+            "rating": "Trusted by 35,000+ dog parents",
+            "photo1": "shopify://shop_images/pawguard-kitchen-dog-lap.jpg",
+            "photo2": "shopify://shop_images/pawguard-drops-added-to-dog-food.jpg",
+            "photo3": "shopify://shop_images/pawguard-trusted-by-dog-parents.jpg",
+            "photo4": "shopify://shop_images/pawguard-parasite-cleanse-drops-main.jpg",
+            "bg": "paper2",
+            "btn": "Continue",
+            "side_heading": "Rated 4.5 · 1,281 reviews"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "heading": "How much does your dog weigh?",
+            "options": "Small – under 25 lbs\nMedium – 25–50 lbs\nLarge – over 50 lbs",
+            "is_final": false,
+            "note": "",
+            "bg": "paper"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "heading": "Is your dog showing any of these signs — scooting, paw licking, itching or loose stools?",
+            "options": "Yes\nNo",
+            "is_final": true,
+            "note": "Both answers take you to your dog's recommended routine. 90-day money-back guarantee, even if the bottle is empty.",
+            "bg": "paper2"
+          }
+        }
+      },
+      "block_order": [
+        "hero",
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "vet",
+        "rv",
+        "q1",
+        "q2"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "layout": "pg-advertorial",
+  "sections": {
+    "main": {
+      "type": "pg-quiz-lp",
+      "settings": {
+        "logo": "shopify://shop_images/pawguard-logo-green.png",
+        "product": "parasite-cleanse-drops",
+        "disclaimer": "<p>This is an advertorial for informational purposes only. Information provided by PawGuard does not constitute veterinary advice and should not be used as a replacement for advice from your veterinarian. Please consult your veterinarian regarding any change in treatment or supplementation. Never discontinue or change your dog's prescribed behavioural medication without consulting your veterinarian. Testimonials are from verified PawGuard customers based on their own experiences. The reviewing veterinarian was compensated for her time. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>"
+      },
+      "blocks": {
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "image": "shopify://shop_images/pawguard-hero-desktop.jpg",
+            "image_mobile": "shopify://shop_images/pawguard-hero-mobile.jpg",
+            "eyebrow": "Free 60-second dog check",
+            "heading": "He Isn't Just Barking At The Window.",
+            "heading_hl": "Sometimes The Real Trouble Starts In His Gut",
+            "heading_end": ".",
+            "text": "<p>Many owners of window-barkers, doorbell-reactors and dogs who can't settle notice something else too: scooting, paw licking, loose stools or pacing at 3AM. Those are gut signs — and they're worth a closer look.</p>",
+            "guarantee": "90-day money-back guarantee — even if the bottle is empty.",
+            "rating": "Rated 4.5/5 · trusted by 35,000+ dog owners",
+            "btn": "Find out more",
+            "show_skip": true
+          }
+        },
+        "p1": {
+          "type": "panel",
+          "settings": {
+            "heading": "Why a dog who patrols the window may not just be “territorial”",
+            "text": "<p>A dog who scans the street all day isn't always guarding the house. Sometimes he's simply a dog who doesn't feel right — and a dog who doesn't feel right finds it much harder to switch off.</p><p>That's why the curtains help a little, the white noise helps a little, and the training helps with the habit… but the restlessness keeps coming back.</p><p>Training can teach him what to do instead. It can't change how he feels.</p>",
+            "image_hint": "a dog watching out of the window",
+            "bg": "paper",
+            "btn": "So what could he be feeling?",
+            "show_skip": true
+          }
+        },
+        "p2": {
+          "type": "panel",
+          "settings": {
+            "heading": "Around 90% of the body's serotonin is made in the gut, not the brain",
+            "text": "<p>Serotonin is one of the body's main “feel-calm” messengers — and in mammals, the vast majority of it is produced in the gut.</p><p>Scientists are still learning exactly how the gut and the brain talk to each other (the “gut–brain axis”), but it's one reason a growing number of vets look at digestion when a dog can't settle.</p><p>And the gut is exactly where intestinal parasites live. They're more common than most owners think: a 2020 study found intestinal parasites at <strong>85% of U.S. dog parks tested</strong>. Because many parasites shed eggs on and off, a single stool test can come back clear even when something is there.</p>",
+            "image": "shopify://shop_images/dog-gut-health-illustration.jpg",
+            "image_left": true,
+            "bg": "paper2",
+            "btn": "Continue",
+            "show_skip": false
+          }
+        },
+        "p3": {
+          "type": "checklist",
+          "settings": {
+            "heading": "Sound familiar?",
+            "intro": "If you recognise three or more of these, your dog may fit a pattern that training alone keeps missing:",
+            "items": "He patrols the window and reacts to every car, delivery and passer-by\nThe doorbell sets him off and he keeps going long after it stops\nYou can't take a phone call without him getting worked up\nYou've closed the curtains, tried white noise or moved where you work\nHe licks his paws at night\nHe scoots\nHis coat has gone flat or dull\nHe paces at three in the morning",
+            "first_tag": "you're here about this one",
+            "outro": "The last four are gut signs. If the barking were only about what's outside, they wouldn't be on the list.",
+            "image_hint": "a dog licking its paw",
+            "bg": "paper",
+            "btn": "What actually helps?",
+            "show_skip": true
+          }
+        },
+        "p4": {
+          "type": "panel",
+          "settings": {
+            "heading": "Quieting the alarm vs. looking at what's behind it",
+            "text": "<p>Calming chews and CBD can take the edge off — for a few hours. That's not because they're fake. It's because they work on the nervous system, not on the gut.</p><p>A complete gut routine does three things, every day:</p><ol><li><strong>Support the body against parasites at every life stage.</strong> Black walnut hull, wormwood root (carefully limited to 0.85% thujone), clove and pumpkin seed.</li><li><strong>Keep the gut calm while it works.</strong> Marshmallow root, ginger and fennel soothe digestion; Oregon grape root, olive leaf and goldenrod help keep things in balance.</li><li><strong>Rebuild healthy gut flora.</strong> A four-strain probiotic blend: L. plantarum, L. acidophilus, B. lactis and L. reuteri.</li></ol><p><strong>PawGuard Parasite Cleanse Drops</strong> bring all 11 actives together in one duck-flavoured liquid — third-party tested and made in a GMP-certified facility. Add it to his food once a day, dosed by weight with the marked dropper. That's the whole routine.</p>",
+            "image": "shopify://shop_images/pawguard-ingredients-still-life.jpg",
+            "bg": "paper2",
+            "btn": "Continue reading",
+            "show_skip": false
+          }
+        },
+        "p5": {
+          "type": "compare",
+          "settings": {
+            "heading": "Most things manage the barking.",
+            "heading_2": "PawGuard supports the gut behind the discomfort.",
+            "text": "<p><strong>Training</strong> teaches him what to do instead — great for habits, but it doesn't change how his gut feels.</p><p><strong>Calming chews and CBD</strong> can take the edge off for a few hours.</p><p><strong>Prescribed sedatives</strong> turn the volume down on the whole dog, for as long as he takes them.</p>",
+            "points": "One daily dose on his food, measured to his weight\nNothing to train, nothing to time, nothing to keep up\nMade for restless dogs who also show gut signs: scooting, paw licking, loose stools, 3AM pacing",
+            "fine": "PawGuard is a supplement, not a replacement for training or your vet's advice. Never stop prescribed behavioural medication without talking to your vet.",
+            "bg": "paper",
+            "btn": "Continue",
+            "show_skip": false
+          }
+        },
+        "vet": {
+          "type": "vet",
+          "settings": {
+            "heading": "Vet-reviewed",
+            "vet1_quote": "",
+            "vet1_name": "",
+            "vet1_title": "",
+            "vet2_quote": "",
+            "vet2_name": "",
+            "vet2_title": "",
+            "disclosure": "Compensated for her time.",
+            "bg": "paper2",
+            "btn": "Continue reading",
+            "show_skip": false
+          }
+        },
+        "rv": {
+          "type": "reviews",
+          "settings": {
+            "heading": "What PawGuard owners say…",
+            "verified": true,
+            "r1_name": "Nicole",
+            "r1_title": "",
+            "r1_text": "I'm pretty particular about what I give my Golden Retriever, so I always take time to research ingredients and ask our veterinarian questions. I do appreciate the convenience of a liquid product that fits into an established feeding routine.",
+            "r1_image": "shopify://shop_images/review-nicole-dogs.jpg",
+            "r2_name": "Michael",
+            "r2_title": "",
+            "r2_text": "Between work, the kids, and taking care of our Labrador, mornings can get pretty hectic. I appreciate products that don't require a lot of extra steps. Adding drops to his food takes very little time.",
+            "r2_image": "shopify://shop_images/review-michael-dog.jpg",
+            "r3_name": "Megan",
+            "r3_title": "",
+            "r3_text": "My Beagle has a talent for finding anything unusual in his food, so I wasn't sure how he'd react. Surprisingly, he finished his meal without any fuss. That was a pleasant surprise for me.",
+            "r3_image": "shopify://shop_images/review-megan-dog.jpg",
+            "r4_name": "Rachel",
+            "r4_title": "",
+            "r4_text": "I like that the bottle doesn't take up much room in our pet supplies cabinet. The dropper makes it convenient to dispense the liquid, and the packaging is compact enough to bring along when traveling.",
+            "r4_image": "shopify://shop_images/review-rachel-dog.jpg",
+            "rating": "Rated 4.5 · 1,281 reviews",
+            "photo1": "shopify://shop_images/pawguard-kitchen-dog-lap.jpg",
+            "photo2": "shopify://shop_images/pawguard-drops-added-to-dog-food.jpg",
+            "photo3": "shopify://shop_images/pawguard-trusted-by-dog-parents.jpg",
+            "photo4": "shopify://shop_images/pawguard-parasite-cleanse-drops-main.jpg",
+            "bg": "paper",
+            "btn": "Continue",
+            "side_heading": "…and 35,000+ dog parents"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "heading": "How much does your dog weigh?",
+            "options": "Small – under 25 lbs\nMedium – 25–50 lbs\nLarge – over 50 lbs",
+            "is_final": false,
+            "note": "",
+            "bg": "paper2"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "heading": "Have you already tried training, calming chews, or something from the vet to settle him?",
+            "options": "Yes, and none of it held\nNot yet, but this sounds like him",
+            "is_final": true,
+            "note": "Both answers take you to your dog's recommended routine. 90-day money-back guarantee, even if the bottle is empty.",
+            "bg": "paper2"
+          }
+        }
+      },
+      "block_order": [
+        "hero",
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "vet",
+        "rv",
+        "q1",
+        "q2"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
