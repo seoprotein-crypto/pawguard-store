@@ -1,0 +1,39 @@
+{
+  "layout": "pg-advertorial",
+  "sections": {
+    "main": {
+      "type": "pg-advertorial",
+      "settings": {
+        "logo": "shopify://shop_images/pawguard-logo-green.png",
+        "top_note": "90-day money-back guarantee",
+        "top_cta": "Check availability",
+        "update_text": "UPDATE: PawGuard sold out 4 times last year. Bundle & save, plus an extra 20% off when you subscribe — only on the official site",
+        "update_link": "HERE",
+        "label": "Advertorial",
+        "byline_prefix": "Reviewed by",
+        "vet_name": "",
+        "vet_title": "",
+        "show_vet": true,
+        "vet_quote": "",
+        "vet_disclosure": "Compensated for her time.",
+        "product": "parasite-cleanse-drops",
+        "cta_label": "Check availability",
+        "card_badge": "Bundle & save + extra 20% when you subscribe",
+        "rating_text": "4.5 · 1,281 reviews",
+        "card_points": "90-day money-back guarantee\nSubscribe & save an extra 20% — never run out\nOnce a day in food · duck-flavoured\nSold out 4 times last year",
+        "card_small": "Only sold at paw-guard.com · Free US shipping over $54",
+        "offer_heading": "Try PawGuard risk-free for 90 days",
+        "offer_sub": "Bundle & save — and save an extra 20% when you subscribe",
+        "offer_points": "Subscribe and a fresh supply ships automatically — pause or cancel anytime\nOnce a day in food · duck-flavoured, no pills\n90-day money-back guarantee — if your dog doesn't show meaningful improvement, you get a full refund\nSold out 4 times last year · only sold at paw-guard.com",
+        "offer_cta": "Check availability",
+        "offer_small": "Click the button above to see current availability and bundle prices.",
+        "signoff": "",
+        "references": "<ol><li>Stafford K, Kollasch TM, Duncan KT, et al. Detection of gastrointestinal parasitism at recreational canine sites in the USA: the DOGPARCS study. <em>Parasites &amp; Vectors</em>, 2020;13(1):275. <a href=\"https://pubmed.ncbi.nlm.nih.gov/32487211/\">pubmed.ncbi.nlm.nih.gov/32487211</a></li><li>Drake J, Carey T. Seasonality and changing prevalence of common canine gastrointestinal nematodes in the USA. <em>Parasites &amp; Vectors</em>, 2019;12(1):430. <a href=\"https://pubmed.ncbi.nlm.nih.gov/31488192/\">pubmed.ncbi.nlm.nih.gov/31488192</a></li></ol>",
+        "disclaimer": "<p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. It is a dietary supplement for dogs, not a medicine. Always consult a licensed veterinarian. Results may vary.</p><p><strong>THIS IS AN ADVERTORIAL AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE.</strong></p><p>This is an advertisement for PawGuard and is intended for informational purposes only. It does not constitute veterinary advice and should not replace advice from your veterinarian. Please consult your veterinarian regarding any change in treatment or supplementation.</p><p>Testimonials are from verified PawGuard customers based on their own experiences; individual results may vary. The reviewing veterinarian was compensated for her time.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

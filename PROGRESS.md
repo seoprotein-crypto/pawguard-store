@@ -130,3 +130,9 @@ No mutations to the store have been made.
 - 2026-11-16 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 7" gid://shopify/OnlineStoreTheme/192596836680 | OK
 - 2026-11-16 | theme_bash + theme_commit 10c70310 | working copy 7 | pg-product-hero: sell-out notice (settings, link selects subscription); pawguard.js subscribe link; pawguard.css notice styles + review photo 150px; product.pawguard.json review images Nicole/Rachel/Megan/Michael + notice PS line | MD5 identical to repo
 - 2026-11-16 | Test (Playwright, working copy 7) | notice shows desktop+mobile; link switches to subscription ($89.99 -> $71.99, selling plan on); 4 product reviews show the customer photo; no JS errors / overflow
+- 2026-11-17 | Owner | published "PawGuard – working copy 7" (192596836680) -> MAIN (notice + review photos live). Asked for advertorial page like safepetcorner.com/adv-5 at paw-guard.com/adv-5
+- 2026-11-17 | Check | competitor advertorial read (curl). NOT copied (rule 6 / FTC / FDA): first-person vet case story, "184 of 200 dogs" stat, invented testimonials, "~120 bottles left", 50% Fall Sale, kill/eggs/come-off-meds drug claims, vet-bashing. Kept: structure, sidebar card, vet box (placeholders), offer box, references (2 real studies), advertorial disclaimer. Used real reviews (Nicole/Michael/Megan/Rachel + photos), real facts
+- 2026-11-17 | Local | content/page-adv-5.html; theme/layout/pg-advertorial.liquid (minimal layout, noindex); theme/sections/pg-advertorial.liquid; theme/templates/page.adv.json
+- 2026-11-17 | Shopify MCP | themeDuplicate live -> "PawGuard – working copy 8" gid://shopify/OnlineStoreTheme/192703430984 | OK
+- 2026-11-17 | Shopify MCP | pageCreate "The Hidden Parasite Problem…" handle adv-5, templateSuffix adv, published (gid://shopify/Page/158866964808) | OK
+- 2026-11-17 | Shopify MCP | urlRedirectCreate /adv-5 -> /pages/adv-5 (gid://shopify/UrlRedirect/1056665993544) | OK

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}</title>
+    {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">{%- endif -%}
+    {%- comment -%} Advertorial landing page for paid traffic: kept out of search results. {%- endcomment -%}
+    <meta name="robots" content="noindex">
+    {{ content_for_header }}
+    <style>html,body{margin:0;padding:0;background:#fff}*{box-sizing:border-box}</style>
+  </head>
+  <body>
+    {{ content_for_layout }}
+  </body>
+</html>

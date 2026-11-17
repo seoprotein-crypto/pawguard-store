@@ -1,0 +1,251 @@
+{%- comment -%}
+  PawGuard advertorial: top bar, article (page title + page content), sticky product card,
+  offer box, vet box, references, disclaimer. Article text is edited in Online Store > Pages.
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product
+  assign cta_url = p.url | default: '/products/parasite-cleanse-drops'
+  if section.settings.cta_url != blank
+    assign cta_url = section.settings.cta_url
+  endif
+-%}
+<style>
+  .pgadv{--g:#1f5c3f;--gd:#173f2d;--gs:#e7efe9;--oat:#f6f0e7;--ink:#1d2b24;--mut:#5d6b64;--line:#e3e8e5;--gold:#e0a526;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.65}
+  .pgadv *{box-sizing:border-box}
+  .pgadv a{color:var(--g)}
+  .pgadv-top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+  .pgadv-top__in{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .pgadv-top__logo img{display:block;height:auto}
+  .pgadv-top__g{font-size:13px;color:var(--mut);font-weight:600}
+  .pgadv-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--g);color:#fff!important;text-decoration:none;font-weight:800;border-radius:999px;padding:12px 22px;font-size:15px;letter-spacing:.02em;text-transform:uppercase;transition:.15s;text-align:center}
+  .pgadv-btn:hover{background:var(--gd)}
+  .pgadv-btn--block{display:flex;width:100%;padding:16px 20px;font-size:16px}
+  .pgadv-update{background:var(--oat);border-bottom:1px solid #eadfcd}
+  .pgadv-update p{max-width:1180px;margin:0 auto;padding:10px 20px;font-size:14px;line-height:1.5}
+  .pgadv-grid{max-width:1180px;margin:0 auto;padding:28px 20px 40px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:48px;align-items:start}
+  .pgadv-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);font-weight:700;margin:0 0 10px}
+  .pgadv h1{font-size:clamp(28px,3.6vw,42px);line-height:1.15;letter-spacing:-.02em;margin:0 0 16px;color:var(--gd);font-weight:800}
+  .pgadv-by{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:18px 0 24px;font-size:14px;color:var(--mut)}
+  .pgadv-by__ph{flex:0 0 44px;height:44px;border-radius:50%;background:var(--gs);overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--g);font-weight:800}
+  .pgadv-by__ph img{width:100%;height:100%;object-fit:cover}
+  .pgadv-by strong{color:var(--ink)}
+  .pgadv-body h2{font-size:clamp(23px,2.6vw,30px);line-height:1.2;color:var(--gd);margin:40px 0 14px;letter-spacing:-.01em}
+  .pgadv-body p{margin:0 0 16px}
+  .pgadv-body ul,.pgadv-body ol{padding-left:22px;margin:0 0 18px}
+  .pgadv-body li{margin-bottom:8px}
+  .pgadv-body img,.pgadv-body video,.pgadv-body iframe{max-width:100%;height:auto;border-radius:14px;display:block;margin:8px auto 20px}
+  .pgadv-body .pgadv-lead{font-size:19px;color:var(--gd)}
+  .pgadv-body .pgadv-ph{border:2px dashed #c9b99f;background:var(--oat);color:#8a7550;border-radius:14px;padding:34px 18px;text-align:center;font-size:14px;font-weight:700}
+  .pgadv-body .pgadv-rv{border:1px solid var(--line);border-radius:16px;padding:16px;margin:0 0 18px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:4px 16px;background:#fff}
+  .pgadv-body .pgadv-rv img{grid-row:span 2;width:120px;height:120px;object-fit:cover;margin:0;border-radius:12px}
+  .pgadv-body .pgadv-rv p{margin:0;font-size:15px}
+  .pgadv-body .pgadv-rv p:last-child{color:var(--g);font-size:14px;margin-top:6px}
+  .pgadv-side{position:sticky;top:84px}
+  .pgadv-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(23,63,45,.08);background:#fff}
+  .pgadv-card__badge{background:var(--g);color:#fff;text-align:center;font-weight:800;font-size:14px;padding:8px;letter-spacing:.03em}
+  .pgadv-card__img{background:var(--oat);aspect-ratio:1/1}
+  .pgadv-card__img img{width:100%;height:100%;object-fit:contain;display:block}
+  .pgadv-card__b{padding:18px}
+  .pgadv-card__title{font-size:19px;font-weight:800;margin:0 0 4px;color:var(--gd);line-height:1.25}
+  .pgadv-stars{color:var(--gold);letter-spacing:1px;font-size:15px}
+  .pgadv-stars span{color:var(--mut);font-size:13px;letter-spacing:0;margin-left:4px}
+  .pgadv-price{margin:10px 0 12px;font-size:15px}
+  .pgadv-price strong{font-size:24px;color:var(--gd)}
+  .pgadv-price s{color:var(--mut);margin-left:6px}
+  .pgadv-list{list-style:none;margin:0 0 16px;padding:0;font-size:14px;line-height:1.45}
+  .pgadv-list li{position:relative;padding-left:24px;margin-bottom:8px}
+  .pgadv-list li:before{content:"✓";position:absolute;left:0;top:0;color:var(--g);font-weight:800}
+  .pgadv-small{font-size:12px;color:var(--mut);text-align:center;margin:10px 0 0}
+  .pgadv-offer{border:2px solid var(--g);border-radius:20px;padding:26px;margin:40px 0;background:var(--gs);text-align:center}
+  .pgadv-offer h2{margin:0 0 6px!important;color:var(--gd);font-size:clamp(24px,3vw,32px)}
+  .pgadv-offer__img{max-width:260px;margin:0 auto 14px}
+  .pgadv-offer__img img{width:100%;height:auto;display:block;border-radius:14px}
+  .pgadv-offer .pgadv-list{text-align:left;max-width:460px;margin:16px auto 20px;font-size:15px}
+  .pgadv-sign{margin:28px 0;font-size:16px}
+  .pgadv-vet{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;border:1px solid var(--line);border-radius:18px;padding:20px;margin:36px 0;background:#fff}
+  .pgadv-vet__ph{width:96px;height:96px;border-radius:50%;background:var(--gs);overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--g);font-size:12px;font-weight:700;text-align:center}
+  .pgadv-vet__ph img{width:100%;height:100%;object-fit:cover}
+  .pgadv-vet h3{margin:0 0 2px;font-size:18px;color:var(--gd)}
+  .pgadv-vet__t{font-size:14px;color:var(--mut);margin:0 0 10px}
+  .pgadv-vet__q{font-style:italic;margin:0 0 10px;border-left:3px solid var(--g);padding-left:12px}
+  .pgadv-vet__d{font-size:13px;color:var(--mut);margin:0}
+  .pgadv-empty{color:#8a7550;background:var(--oat);border:1px dashed #c9b99f;border-radius:8px;padding:2px 6px;font-style:normal}
+  .pgadv-refs{font-size:13px;color:var(--mut);border-top:1px solid var(--line);padding-top:18px;margin-top:36px}
+  .pgadv-refs h3{font-size:15px;color:var(--ink);margin:0 0 8px}
+  .pgadv-refs ol{padding-left:20px;margin:0}
+  .pgadv-refs li{margin-bottom:6px;word-break:break-word}
+  .pgadv-foot{background:var(--gd);color:rgba(255,255,255,.78);font-size:12px;line-height:1.6;padding:28px 20px 90px}
+  .pgadv-foot__in{max-width:900px;margin:0 auto;text-align:center}
+  .pgadv-foot a{color:#fff}
+  .pgadv-foot nav{margin-bottom:14px;font-size:13px}
+  .pgadv-foot p{margin:0 0 10px}
+  .pgadv-sticky{display:none}
+  @media (max-width:989px){
+    .pgadv{font-size:16px}
+    .pgadv-grid{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:20px}
+    .pgadv-side{position:static}
+    .pgadv-top__g{display:none}
+    .pgadv-top .pgadv-btn{padding:10px 16px;font-size:13px}
+    .pgadv-sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;padding:10px 14px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -6px 20px rgba(0,0,0,.1)}
+    .pgadv-body .pgadv-rv{grid-template-columns:84px minmax(0,1fr)}
+    .pgadv-body .pgadv-rv img{width:84px;height:84px}
+    .pgadv-vet{grid-template-columns:72px minmax(0,1fr)}
+    .pgadv-vet__ph{width:72px;height:72px}
+  }
+</style>
+
+{%- capture vet_name -%}{%- if section.settings.vet_name != blank -%}{{ section.settings.vet_name }}{%- else -%}<span class="pgadv-empty">[Your vet’s name], DVM</span>{%- endif -%}{%- endcapture -%}
+
+{%- capture product_card -%}
+  <div class="pgadv-card">
+    {%- if section.settings.card_badge != blank -%}<div class="pgadv-card__badge">{{ section.settings.card_badge }}</div>{%- endif -%}
+    <div class="pgadv-card__img">
+      {%- if section.settings.card_image != blank -%}
+        {{ section.settings.card_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: p.title }}
+      {%- elsif p.featured_image -%}
+        {{ p.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: p.title }}
+      {%- endif -%}
+    </div>
+    <div class="pgadv-card__b">
+      <p class="pgadv-card__title">{{ p.title | default: 'PawGuard Parasite Cleanse Drops' }}</p>
+      {%- if section.settings.rating_text != blank -%}<div class="pgadv-stars">★★★★½<span>{{ section.settings.rating_text }}</span></div>{%- endif -%}
+      {%- if p -%}
+        <p class="pgadv-price">From <strong>{{ p.price_min | money }}</strong>{% if p.compare_at_price_min > p.price_min %}<s>{{ p.compare_at_price_min | money }}</s>{% endif %}</p>
+      {%- endif -%}
+      {%- if section.settings.card_points != blank -%}
+        <ul class="pgadv-list">
+          {%- assign pts = section.settings.card_points | newline_to_br | split: '<br />' -%}
+          {%- for pt in pts -%}{%- assign t = pt | strip -%}{%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}{%- endfor -%}
+        </ul>
+      {%- endif -%}
+      <a class="pgadv-btn pgadv-btn--block" href="{{ cta_url }}">{{ section.settings.cta_label }}</a>
+      {%- if section.settings.card_small != blank -%}<p class="pgadv-small">{{ section.settings.card_small }}</p>{%- endif -%}
+    </div>
+  </div>
+{%- endcapture -%}
+
+<div class="pgadv">
+  <header class="pgadv-top">
+    <div class="pgadv-top__in">
+      <a class="pgadv-top__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+        {%- if section.settings.logo != blank -%}
+          {{ section.settings.logo | image_url: width: 300 | image_tag: width: 140, alt: shop.name }}
+        {%- else -%}<strong>{{ shop.name }}</strong>{%- endif -%}
+      </a>
+      {%- if section.settings.top_note != blank -%}<span class="pgadv-top__g">{{ section.settings.top_note }}</span>{%- endif -%}
+      <a class="pgadv-btn" href="{{ cta_url }}">{{ section.settings.top_cta }}</a>
+    </div>
+  </header>
+
+  {%- if section.settings.update_text != blank -%}
+    <div class="pgadv-update"><p>{{ section.settings.update_text }} <a href="{{ cta_url }}"><strong>{{ section.settings.update_link }}</strong></a></p></div>
+  {%- endif -%}
+
+  <div class="pgadv-grid">
+    <main class="pgadv-main">
+      {%- if section.settings.label != blank -%}<p class="pgadv-label">{{ section.settings.label }}</p>{%- endif -%}
+      <h1>{{ page.title }}</h1>
+      <div class="pgadv-by">
+        <span class="pgadv-by__ph">
+          {%- if section.settings.vet_image != blank -%}{{ section.settings.vet_image | image_url: width: 120 | image_tag: alt: '' }}{%- else -%}✚{%- endif -%}
+        </span>
+        <span>{{ section.settings.byline_prefix }} <strong>{{ vet_name }}</strong>{% if section.settings.vet_title != blank %} · {{ section.settings.vet_title }}{% endif %}<br>Updated on {{ page.updated_at | default: 'now' | date: '%m/%d/%Y' }}</span>
+      </div>
+
+      <div class="pgadv-body">{{ page.content }}</div>
+
+      <div class="pgadv-offer" id="offer">
+        {%- if section.settings.offer_heading != blank -%}<h2>{{ section.settings.offer_heading }}</h2>{%- endif -%}
+        {%- if section.settings.offer_sub != blank -%}<p>{{ section.settings.offer_sub }}</p>{%- endif -%}
+        <div class="pgadv-offer__img">
+          {%- if section.settings.card_image != blank -%}{{ section.settings.card_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: p.title }}{%- elsif p.featured_image -%}{{ p.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: p.title }}{%- endif -%}
+        </div>
+        {%- if section.settings.offer_points != blank -%}
+          <ul class="pgadv-list">
+            {%- assign pts = section.settings.offer_points | newline_to_br | split: '<br />' -%}
+            {%- for pt in pts -%}{%- assign t = pt | strip -%}{%- if t != blank -%}<li>{{ t }}</li>{%- endif -%}{%- endfor -%}
+          </ul>
+        {%- endif -%}
+        <a class="pgadv-btn pgadv-btn--block" href="{{ cta_url }}">{{ section.settings.offer_cta }}</a>
+        {%- if section.settings.offer_small != blank -%}<p class="pgadv-small">{{ section.settings.offer_small }}</p>{%- endif -%}
+      </div>
+
+      {%- if section.settings.signoff != blank -%}<p class="pgadv-sign">{{ section.settings.signoff }}<br><strong>{{ vet_name }}</strong></p>{%- endif -%}
+
+      {%- if section.settings.show_vet -%}
+        <aside class="pgadv-vet" aria-label="About the reviewing veterinarian">
+          <div class="pgadv-vet__ph">{%- if section.settings.vet_image != blank -%}{{ section.settings.vet_image | image_url: width: 200 | image_tag: alt: section.settings.vet_name }}{%- else -%}Vet photo{%- endif -%}</div>
+          <div>
+            <h3>{{ vet_name }}</h3>
+            <p class="pgadv-vet__t">{%- if section.settings.vet_title != blank -%}{{ section.settings.vet_title }}{%- else -%}<span class="pgadv-empty">[Title · years of practice]</span>{%- endif -%}</p>
+            {%- if section.settings.vet_quote != blank -%}
+              <p class="pgadv-vet__q">“{{ section.settings.vet_quote }}”</p>
+            {%- else -%}
+              <p class="pgadv-vet__q"><span class="pgadv-empty">[Your vet’s testimonial, in her own words]</span></p>
+            {%- endif -%}
+            {%- if section.settings.vet_disclosure != blank -%}<p class="pgadv-vet__d">{{ section.settings.vet_disclosure }}</p>{%- endif -%}
+          </div>
+        </aside>
+      {%- endif -%}
+
+      {%- if section.settings.references != blank -%}
+        <div class="pgadv-refs"><h3>References</h3>{{ section.settings.references }}</div>
+      {%- endif -%}
+    </main>
+
+    <aside class="pgadv-side">{{ product_card }}</aside>
+  </div>
+
+  <footer class="pgadv-foot">
+    <div class="pgadv-foot__in">
+      <nav><a href="{{ routes.root_url }}">Home</a> · <a href="/policies/privacy-policy">Privacy Policy</a> · <a href="/policies/terms-of-service">Terms of Service</a> · <a href="/pages/contact">Contact</a></nav>
+      {{ section.settings.disclaimer }}
+      <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="pgadv-sticky"><a class="pgadv-btn pgadv-btn--block" href="{{ cta_url }}">{{ section.settings.cta_label }}</a></div>
+</div>
+
+{% schema %}
+{
+  "name": "PawGuard advertorial",
+  "settings": [
+    { "type": "header", "content": "Top" },
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "text", "id": "top_note", "label": "Top bar note", "default": "90-day money-back guarantee" },
+    { "type": "text", "id": "top_cta", "label": "Top bar button", "default": "Check availability" },
+    { "type": "text", "id": "update_text", "label": "Update banner text" },
+    { "type": "text", "id": "update_link", "label": "Update banner link text", "default": "HERE" },
+    { "type": "text", "id": "label", "label": "Small label above headline", "default": "Advertorial" },
+    { "type": "header", "content": "Byline + vet" },
+    { "type": "text", "id": "byline_prefix", "label": "Byline prefix", "default": "Reviewed by" },
+    { "type": "text", "id": "vet_name", "label": "Vet name (e.g. Dr. Jane Doe, DVM)" },
+    { "type": "text", "id": "vet_title", "label": "Vet title / experience" },
+    { "type": "image_picker", "id": "vet_image", "label": "Vet photo (real)" },
+    { "type": "checkbox", "id": "show_vet", "label": "Show vet box", "default": true },
+    { "type": "textarea", "id": "vet_quote", "label": "Vet testimonial (her own words, approved by her)" },
+    { "type": "text", "id": "vet_disclosure", "label": "Vet disclosure", "default": "Compensated for her time." },
+    { "type": "header", "content": "Product + buttons" },
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "url", "id": "cta_url", "label": "Button link (optional, defaults to product page)" },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Check availability" },
+    { "type": "image_picker", "id": "card_image", "label": "Product card image (optional)" },
+    { "type": "text", "id": "card_badge", "label": "Card badge" },
+    { "type": "text", "id": "rating_text", "label": "Rating text" },
+    { "type": "textarea", "id": "card_points", "label": "Card bullet points (one per line)" },
+    { "type": "text", "id": "card_small", "label": "Card small print" },
+    { "type": "header", "content": "Offer box (end of article)" },
+    { "type": "text", "id": "offer_heading", "label": "Offer heading" },
+    { "type": "text", "id": "offer_sub", "label": "Offer subheading" },
+    { "type": "textarea", "id": "offer_points", "label": "Offer bullet points (one per line)" },
+    { "type": "text", "id": "offer_cta", "label": "Offer button", "default": "Check availability" },
+    { "type": "text", "id": "offer_small", "label": "Offer small print" },
+    { "type": "text", "id": "signoff", "label": "Sign-off line" },
+    { "type": "header", "content": "References + disclaimer" },
+    { "type": "richtext", "id": "references", "label": "References" },
+    { "type": "richtext", "id": "disclaimer", "label": "Footer disclaimer" }
+  ],
+  "presets": [{ "name": "PawGuard advertorial" }]
+}
+{% endschema %}
